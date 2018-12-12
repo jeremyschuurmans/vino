@@ -38,3 +38,17 @@ body {
 .navbar-right:hover {
   background-color: black;
 }
+
+/* set black background color, white text and some padding */
+
+footer {
+  background-color: #8b9dc3;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+.glyphicon-heart {
+  color: red;
+  font-size: 14px;
+  padding-top: 10px;
+}
