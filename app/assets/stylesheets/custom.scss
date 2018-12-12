@@ -1,0 +1,40 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+/* set gray background color, font */
+
+body {
+  background-color: #f7f7f7;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 70px;
+}
+
+/* navbar styles - set color, format logo, animations for buttons and links */
+
+.navbar {
+  background-color: #3b5998;
+  border: 0;
+  border-radius: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.nav.navbar-nav li a {
+  color: white;
+}
+.nav.navbar-nav li a:hover {
+  background-color: black;
+}
+.logo {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 30px;
+  background-color: #3b5998;
+  color: white;
+  padding-top: 4px;
+  margin-right: 14px;
+}
+.navbar-right:hover {
+  background-color: black;
+}
