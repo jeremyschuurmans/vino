@@ -40,7 +40,7 @@
 //   margin-right: auto;
 // }
 
-/* sign up form */
+/* forms */
 
 .col-sm-12 h1 {
   text-align: center;
@@ -56,6 +56,21 @@
     color: white;
   }
 }
+
+#error_message {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.error {
+  color: #a94442;
+}
+
+
+
 
 /* miscellaneous */
 

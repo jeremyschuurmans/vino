@@ -6,20 +6,21 @@
       <h1>Create a New Account</h1>
       <br></br>
       <%= form_for(@user) do |f| %>
+        <%= render 'layouts/error_messages' %>
         <div class="form-group">
-          <%= f.label :name %>
+          <%= f.label :name, :class => field_class(@user, :name) %>
           <%= f.text_field :name, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :email %>
+          <%= f.label :email, :class => field_class(@user, :email) %>
           <%= f.email_field :email, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :password %>
+          <%= f.label :password, :class => field_class(@user, :password) %>
           <%= f.password_field :password, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label :password_confirmation, "Enter Your Password Again" %>
+          <%= f.label :password_confirmation, "Enter Your Password Again", :class => field_class(@user, :password_confirmation) %>
           <%= f.password_field :password_confirmation, class: "form-control" %>
         </div>
         <%= f.submit "Sign Up", class: "btn btn-block" %>
