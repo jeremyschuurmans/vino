@@ -1,8 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* variables */
 
-/* set gray background color, font */
+$navy-blue: #3b5998;
+
+/* set light gray background color, font */
 
 body {
   background-color: #f7f7f7;
@@ -13,24 +16,25 @@ body {
 /* navbar styles - set color, format logo, animations for buttons and links */
 
 .navbar {
-  background-color: #3b5998;
+  background-color: $navy-blue;
   border: 0;
   border-radius: 0;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1;
+  .nav li a {
+    color: white;
+    &:hover {
+      background-color: black;
+    }
+  }
 }
-.nav.navbar-nav li a {
-  color: white;
-}
-.nav.navbar-nav li a:hover {
-  background-color: black;
-}
+
 .logo {
   font-family: 'Noto Sans SC', sans-serif;
   font-size: 30px;
-  background-color: #3b5998;
+  background-color: $navy-blue;
   color: white;
   padding-top: 4px;
   margin-right: 14px;
@@ -46,9 +50,9 @@ footer {
   color: white;
   padding: 15px;
   text-align: center;
-}
-.glyphicon-heart {
-  color: red;
-  font-size: 14px;
-  padding-top: 10px;
+  .glyphicon-heart {
+    color: red;
+    font-size: 14px;
+    padding-top: 10px;
+  }
 }
