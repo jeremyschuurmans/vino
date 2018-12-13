@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
-  layout "static"
-  
+  layout "alternate"
+
   def home
   end
 

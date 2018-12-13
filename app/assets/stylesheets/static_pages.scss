@@ -1,3 +1,49 @@
-// Place all the styles related to the StaticPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.center {
+  margin: 0 auto;
+  padding-top: 100px;
+  width: 35%;
+}
+
+/* navbar styles */
+
+.navbar {
+  background-color: #3b5998;
+  border: 0;
+  border-radius: 0;
+  padding: 10px;
+    p {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 40px;
+      color: white;
+    }
+}
+
+/* image and button styles */
+
+.col-sm-12 img {
+  padding-top: 95px;
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  margin-top: 30px;
+  margin-bottom: 25px;
+  width: 25%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* "made with <heart> by me" */
+
+// #credits p {
+//   padding-top: 0px;
+//   text-align: center;
+// }
+// .glyphicon.glyphicon-heart {
+//   color: red;
+//   font-size: 14px;
+// }
