@@ -22,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: vino_production
+  username: vino
+  password: <%= ENV['VINO_DATABASE_PASSWORD'] %>
