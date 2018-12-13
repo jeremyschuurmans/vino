@@ -1,3 +1,29 @@
 <% provide(:title, 'Sign Up') %>
-<h1>Sign Up</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+
+<div class="container-fluid center">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Create a New Account</h1>
+      <br></br>
+      <%= form_for(@user) do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation, "Enter Your Password Again" %>
+          <%= f.password_field :password_confirmation, class: "form-control" %>
+        </div>
+        <%= f.submit "Sign Up", class: "btn btn-block" %>
+      <% end %>
+    </div>
+  </div>
+</div>
