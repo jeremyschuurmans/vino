@@ -1,2 +1,22 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<% provide(:title, "Log In") %>
+
+<div class="container-fluid center">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Welcome Back!</h1>
+      <p>First time? Sign up <%= link_to "here.", signup_path %></p> 
+      <br></br>
+      <%= form_for(:session, url: login_path) do |f| %>
+        <div class="form-group">
+          <%= f.label :email, :class => field_class(@user, :email) %>
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password, :class => field_class(@user, :password) %>
+          <%= f.password_field :password, class: "form-control" %>
+        </div>
+        <%= f.submit "Sign Up", class: "btn btn-block" %>
+      <% end %>
+    </div>
+  </div>
+</div>
