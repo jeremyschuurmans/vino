@@ -3,7 +3,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
   def setup
-    @user = User.new(name: "Harry Potter", email: "hpotter@hogwarts.edu", password: "quidditch", password_confirmation: "quidditch")
+    @user = users(:harry)
   end
 
   test "should be valid" do
@@ -31,7 +31,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "email validation should accept valid addresses" do
-    valid_addresses = %w[hpotter@pottermore.com hpotter@hogwarts.edu HARRY@potter.COM H_AR-RY@team.gryffindor.org harry.potter@hogwarts.jp harry+potter@hogwarts.co schuurm@ns.codes]
+    valid_addresses = %w[HARRY@potter.COM H_AR-RY@team.gryffindor.org hgranger@hogwarts.edu harry.potter@hogwarts.jp harry+potter@hogwarts.co schuurm@ns.codes]
     valid_addresses.each do |valid_address|
       @user.email = valid_address
       assert @user.valid?, "#{valid_address.inspect} should be a valid email"
