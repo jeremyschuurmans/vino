@@ -1,6 +1,1 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-harry:
- name: Harry Potter
- email: hpotter@hogwarts.edu
- password_digest: <%= User.digest('password') %>

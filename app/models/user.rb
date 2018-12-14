@@ -9,11 +9,5 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: :true, length: { minimum: 6 }
 
-  # Converts string into password digest.
-  # Needed to create user fixture in test/fixtures/users.yml and test log in.
-  def User.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
-  end
+
 end

@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersLoginTest < ActionDispatch::IntegrationTest
 
   def setup
-    @user = users(:harry)
+    @user = User.create(name: "Harry Potter", email: "hpotter@hogwarts.edu", password: "quidditch", password_confirmation: "quidditch")
   end
 
   test "login with invalid username and password" do
@@ -18,8 +18,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with valid username and password" do
     get login_path
-    post login_path, params: { session: { email: @user.email,
-                                          password: 'password' } }
+    post login_path, params: { session: { email: "hpotter@hogwarts.edu",
+                                          password: 'quidditch' } }
     assert_redirected_to @user
     follow_redirect!
     assert_template 'users/show'
