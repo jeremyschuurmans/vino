@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to Vino!"
       redirect_to @user
     else
-      render 'new'
+      render 'new', :layout => 'alternate'
     end
   end
 
