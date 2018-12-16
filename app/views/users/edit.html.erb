@@ -1,0 +1,15 @@
+<% provide(:title, "Edit #{@user.name}") %>
+
+<div class="container-fluid center">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Edit Your Profile</h1>
+      <br></br>
+      <%= render 'form' %>
+
+      <div class="gravatar_edit">
+        <%= gravatar_for @user %>
+        <a href="http://gravatar.com/emails" target="_blank" rel="noopener">change</a>
+    </div>
+  </div>
+</div>

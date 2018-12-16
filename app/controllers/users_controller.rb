@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    render :layout => 'alternate'
   end
 
   private
