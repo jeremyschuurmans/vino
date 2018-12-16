@@ -7,11 +7,16 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @user_2 = User.create(name: "Draco Malfoy", email: "dmalfoy@hogwarts.edu", password: "onedarkpassword", password_confirmation: "onedarkpassword")
   end
 
-  test "should redirect show when not logged in" do
-    get user_path(@user)
-    assert_not flash.empty?
+  test "should redirect user profile page when not logged in" do
+    get users_path
     assert_redirected_to login_url
   end
+
+  # test "should redirect show when not logged in" do
+  #   get user_path(@user)
+  #   assert_not flash.empty?
+  #   assert_redirected_to login_url
+  # end
 
   test "should redirect edit when not logged in" do
     get edit_user_path(@user)

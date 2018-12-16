@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
-  before_action :log_in_check, only: [:show, :edit, :update]
+  before_action :log_in_check, only: [:index, :edit, :update]
   before_action :correct_user_check, only: [:edit, :update]
+
+  def index
+    @users = User.all
+  end
 
   def new
     @user = User.new
@@ -8,9 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if logged_in?
-      @user = current_user
-    end
+    @user = User.find(params[:id])
   end
 
   def create
