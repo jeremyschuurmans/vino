@@ -26,6 +26,16 @@ class UsersController < ApplicationController
     render :layout => 'alternate'
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Saved Successfully!"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
   private
 
     def user_params
