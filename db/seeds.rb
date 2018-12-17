@@ -13,3 +13,21 @@ User.create!(name: "Harry Potter",
                password: password,
                password_confirmation: password)
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+  name = Faker::Lorem.sentence(5)
+  winery = Faker::Lorem.sentence(5)
+  vintage = Faker::Lorem.sentence(5)
+  origin = Faker::Lorem.sentence(5)
+  price = Faker::Lorem.sentence(5)
+  rating = Faker::Lorem.sentence(5)
+  tasting_notes = Faker::Lorem.sentence(5)
+  users.each { |user| user.wines.create!(name: name,
+                                         winery: winery,
+                                         vintage: vintage,
+                                         origin: origin,
+                                         price: price,
+                                         rating: rating,
+                                         tasting_notes: tasting_notes) }
+end
