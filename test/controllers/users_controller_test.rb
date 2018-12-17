@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersControllerTest < ActionDispatch::IntegrationTest
 
   def setup
-    @user   = User.create(name: "Harry Potter", email: "hpotter@hogwrts.edu", password: "quidditch", password_confirmation: "quidditch")
+    @user   = User.create(name: "Harry Potter", email: "hpotter@hogwrts.edu", password: "quidditch", password_confirmation: "quidditch", admin: true)
     @user_2 = User.create(name: "Draco Malfoy", email: "dmalfoy@hogwarts.edu", password: "onedarkpassword", password_confirmation: "onedarkpassword")
   end
 
@@ -43,6 +43,30 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@user_2)
     get edit_user_path(@user)
     assert flash.empty?
+    assert_redirected_to root_url
+  end
+
+  test "should not allow the admin attribute to be edited via url hack" do
+    log_in_as(@user_2)
+    assert_not @user_2.admin?
+    patch user_path(@user_2), params: { user: { password: @user_2.password,
+                                                password_confirmation: @user_2.password,
+                                                admin: true } }
+    assert_not @user_2.reload.admin?
+  end
+
+  test "should redirect destroy when not logged in" do
+    assert_no_difference 'User.count' do
+      delete user_path(@user)
+    end
+    assert_redirected_to login_url
+  end
+
+  test "should redirect destroy when logged in as a non-admin" do
+    log_in_as(@user_2)
+    assert_no_difference 'User.count' do
+      delete user_path(@user)
+    end
     assert_redirected_to root_url
   end
 end
