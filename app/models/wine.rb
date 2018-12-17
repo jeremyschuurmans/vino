@@ -1,5 +1,6 @@
 class Wine < ApplicationRecord
   belongs_to :user
+  default_scope -> { order(created_at: :desc) }
   validates :user_id,
             :name,
             :winery,
@@ -8,5 +9,4 @@ class Wine < ApplicationRecord
             :price,
             :rating,
             :tasting_notes, presence: true
-
 end
