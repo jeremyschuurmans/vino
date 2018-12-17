@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :wines
+  has_many :wines, dependent: :destroy
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
   validates :name, presence: :true, length: { maximum: 100 }
