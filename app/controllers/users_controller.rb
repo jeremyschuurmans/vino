@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @wines = @user.wines.paginate(page: params[:page])
   end
 
   def create

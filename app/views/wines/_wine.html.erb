@@ -1,0 +1,12 @@
+<li id="wine-<%= wine.id %>">
+  <%= link_to gravatar_for(wine.user, size: 50), wine.user %>
+  <span class="user"><%= link_to wine.user.name, wine.user %></span>
+  <span class="name"><%= wine.name %></span>
+  <span class="winery"><%= wine.winery %></span>
+  <span class="vintage"><%= wine.vintage %></span>
+  <span class="origin"><%= wine.origin %></span>
+  <span class="price"><%= wine.price %></span>
+  <span class="rating"><%= wine.rating %></span>
+  <span class="tasting_notes"><%= wine.tasting_notes %></span>
+  <span class="timestamp">Posted <%= time_ago_in_words(micropost.created_at) %> ago.</span>
+</li>

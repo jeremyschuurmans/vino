@@ -20,3 +20,25 @@
     </div>
   </div>
 </div>
+<div class="col-sm-7">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default text-left">
+        <div class="panel-body">
+          <p contenteditable="true">What's going on today, <%= @user.name %>?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="well">
+        <% if @user.wines.any? %>
+          <h3>Wines (<%= @user.wines.count %>)</h3>
+          <ol class="wines">
+            <%= render @wines %>
+          </ol>
+        <% end %>
+      </div>
+    </div>
+  </div>
