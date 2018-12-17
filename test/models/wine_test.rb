@@ -4,14 +4,13 @@ class WineTest < ActiveSupport::TestCase
 
   def setup
     @user = User.create(name: "Harry Potter", email: "hpotter@hogwarts.edu", password: "quidditch", password_confirmation: "quidditch")
-    @wine = Wine.create(name: "Borsao Garnacha",
-                        winery: "Borsao",
-                        vintage: "2016",
-                        origin: "Spain",
-                        price: "$9",
-                        rating: 6,
-                        tasting_notes: "Both on the nose and palate, this Garnacha is mildly angular and pinching, with a sense of rawness brought on by hard tannins. Its foxy plum flavors are jumpy and nervy, finishing peppery and jagged.",
-                        user_id: @user.id)
+    @wine = @user.wines.build(name: "Borsao Garnacha",
+                              winery: "Borsao",
+                              vintage: "2016",
+                              origin: "Spain",
+                              price: "$9",
+                              rating: 6,
+                              tasting_notes: "Both on the nose and palate, this Garnacha is mildly angular and pinching, with a sense of rawness brought on by hard tannins. Its foxy plum flavors are jumpy and nervy, finishing peppery and jagged.")
   end
 
   test "should be vaid" do
