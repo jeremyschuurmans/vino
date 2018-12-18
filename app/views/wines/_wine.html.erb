@@ -1,12 +1,12 @@
 <li id="wine-<%= wine.id %>">
   <%= link_to gravatar_for(wine.user, size: 50), wine.user %>
   <span class="user"><%= link_to wine.user.name, wine.user %></span>
-  <span class="name"><%= wine.name %></span>
-  <span class="winery"><%= wine.winery %></span>
-  <span class="vintage"><%= wine.vintage %></span>
-  <span class="origin"><%= wine.origin %></span>
-  <span class="price"><%= wine.price %></span>
-  <span class="rating"><%= wine.rating %></span>
-  <span class="tasting_notes"><%= wine.tasting_notes %></span>
+  <span class="name"><strong>Name: </strong><%= wine.name %></span>
+  <span class="winery"><strong>Winery: </strong><%= wine.winery %></span>
+  <span class="vintage"><strong>Vintage: </strong><%= wine.vintage %></span>
+  <span class="origin"><strong>Origin: </strong><%= wine.origin %></span>
+  <span class="price"><strong>Price: </strong><%= wine.price %></span>
+  <span class="rating"><strong>Rating: </strong><%= wine.rating %></span>
+  <span class="tasting_notes"><strong>Tasting Notes: </strong><%= wine.tasting_notes %></span>
   <span class="timestamp">Posted <%= time_ago_in_words(wine.created_at) %> ago.</span>
 </li>

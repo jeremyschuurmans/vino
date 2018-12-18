@@ -30,15 +30,18 @@
       </div>
     </div>
   </div>
+  <% if @user.wines.any? %>
+  <h3>Wines (<%= @user.wines.count %>)</h3>
+  <% @user.wines.each do %>
   <div class="row">
     <div class="col-sm-12">
       <div class="well">
-        <% if @user.wines.any? %>
-          <h3>Wines (<%= @user.wines.count %>)</h3>
-          <ol class="wines">
-            <%= render @wines %>
-          </ol>
-        <% end %>
+        <ol class="wines">
+          <%= render @wines %>
+        </ol>
       </div>
     </div>
   </div>
+  <% end %>
+  <% end %>
+  <%= will_paginate @wines %>
