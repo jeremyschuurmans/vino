@@ -17,31 +17,53 @@
         <p><a href="https://www.winespectator.com/" target="_blank" rel="noopener">Wine Spectator</a></p>
         <p><a href="https://en.wikipedia.org/wiki/Wine" target="_blank" rel="noopener">Wikipedia</a></p>
       </div>
+    <div class="col-sm-7">
+      
+      <div class="row">
+        <!-- <div class="col-sm-3">
+          <div class="well">
+           <p>John</p>
+           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+          </div>
+        </div> -->
+        <% if @user.wines.any? %>
+        <h3>Wines (<%= @user.wines.count %>)</h3>
+        <div class="col-sm-12">
+          <% @user.wines.each do %>
+          <div class="well">
+            <ol class="wines">
+              <%= render @wines %>
+            </ol>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+      <%= will_paginate @wines %>
+    </div>
+
+    <div class="col-sm-2 well">
+      <div class="thumbnail">
+        <p>Upcoming Events:</p>
+        <img src="https://picsum.photos/400/?random" alt="Avatar">
+        <p><strong>Wine & Art Fest</strong></p>
+        <p>May to November 2018</p>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#eventModal">Info</button>
+      </div>
+      <div class="well">
+        <p>Sponsored</p>
+        <div class="thumbnail">
+          <a href="#" data-toggle="modal" data-target="#advertModalOne"><img src="/images/wine_ad_1.png" alt="Thierry and Guy wine ad"></a>
+        </div>
+        <p>Thierry and Guy</p>
+      </div>
+      <div class="well">
+        <p>Sponsored</p>
+        <div class="thumbnail">
+          <a href="#" data-toggle="modal" data-target="#advertModalTwo"><img src="/images/wine_ad_2.png" alt="Scavi and Ray Prosecco"></a>
+        </div>
+        <p>Scavi and Ray Prosecco</p>
+      </div>
     </div>
   </div>
 </div>
-<div class="col-sm-7">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="panel panel-default text-left">
-        <div class="panel-body">
-          <p contenteditable="true">What's going on today, <%= @user.name %>?</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% if @user.wines.any? %>
-  <h3>Wines (<%= @user.wines.count %>)</h3>
-  <% @user.wines.each do %>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="well">
-        <ol class="wines">
-          <%= render @wines %>
-        </ol>
-      </div>
-    </div>
-  </div>
-  <% end %>
-  <% end %>
-  <%= will_paginate @wines %>
