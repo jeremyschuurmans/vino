@@ -14,10 +14,19 @@ class WinesControllerTest < ActionDispatch::IntegrationTest
                                          origin: "Carneros, California",
                                          price: "$32",
                                          rating: 10,
-                                         tasting_notes: "The 2017 Chardonnay features compelling spiced apples, almond croissant, honeyed peaches and fresh baked pear tart notions on the nose. Medium-bodied with a satiny texture, the palate delivers plenty of peaches and savory layers with a racy line and mineral-tinged finish." } }
+                                         tasting_notes: "The 2017 Chardonnay features compelling spiced apples, almond croissant,
+                                                        honeyed peaches and fresh baked pear tart notions on the nose.
+                                                        Medium-bodied with a satiny texture, the palate delivers plenty of
+                                                        peaches and savory layers with a racy line and mineral-tinged finish." } }
 
-       end
-       assert_redirected_to login_url
+      end
+    assert_redirected_to login_url
+  end
+
+  test "should not allow users to access destroy when not logged in" do
+    assert_no_difference 'Wine.count' do
+      delete wine_path(@wine)
     end
-
+    assert_redirected_to login_url
+  end
 end

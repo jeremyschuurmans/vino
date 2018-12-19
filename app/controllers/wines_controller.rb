@@ -1,4 +1,5 @@
 class WinesController < ApplicationController
+  before_action :log_in_check, only: [:create, :destroy]
 
   def new
     @wine = Wine.new
@@ -6,6 +7,13 @@ class WinesController < ApplicationController
   end
 
   def create
+    @wine = current_user.wines.build(wine_params)
+    if @wine.save
+      flash[:success] = "That sounds delicious!"
+      redirect_to root_url
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -26,4 +34,11 @@ class WinesController < ApplicationController
 
   def destroy
   end
+
+  private
+
+    def wine_params
+      params.require(:wine).permit(:name, :winery, :vintage, :origin, :price,
+                                                     :rating, :tasting_notes)
+    end
 end
