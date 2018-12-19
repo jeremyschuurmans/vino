@@ -1,9 +1,9 @@
-<% provide(:title, 'New Wine') %>
+<% provide(:title, "Edit #{@wine.name}") %>
 
 <div class="container-fluid center">
   <div class="row">
     <div class="col-sm-12">
-      <h1>Create a New Wine</h1>
+      <h1>Edit <%= @wine.name %> </h1>
       <br></br>
       <%= render 'form' %>
     </div>
