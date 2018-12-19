@@ -9,6 +9,7 @@ rose:
   rating: 9
   tasting_notes: "This wine is a pretty, pale-salmon color. Aromas of strawberry bubblegum, herb, tropical fruit and citrus peel lead to dry fruit flavors, full of papaya, guava and pink-grapefruit notes with a tart finish. It flat-out delivers."
   created_at: <%= 30.minutes.ago %>
+  user_id: 2
 
 most_recent_wine:
   name: "Borsao Garnacha"

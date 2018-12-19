@@ -30,7 +30,7 @@ class WinesController < ApplicationController
       flash[:success] = "Wine successfully updated!"
       redirect_to @user
     else
-      render 'edit'
+      redirect_back(fallback_location: root_url)
     end
   end
 
@@ -49,6 +49,6 @@ class WinesController < ApplicationController
 
     def correct_user_check
       @wine = current_user.wines.find_by(id: params[:id])
-      redirect__back(fallback_location: root_url) if @wine.nil?
+      redirect_back(fallback_location: root_url) if @wine.nil?
     end
 end
