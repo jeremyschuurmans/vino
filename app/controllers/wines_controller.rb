@@ -44,7 +44,7 @@ class WinesController < ApplicationController
   private
 
     def wine_params
-      params.require(:wine).permit(:name, :winery, :vintage, :origin, :price, :rating, :tasting_notes)
+      params.require(:wine).permit(:name, :winery, :vintage, :origin, :price, :rating, :tasting_notes, :picture)
     end
 
     def correct_user_check

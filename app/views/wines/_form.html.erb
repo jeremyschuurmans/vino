@@ -28,5 +28,7 @@
     <%= f.label :tasting_notes, :class => field_class(@wine, :tasting_notes) %>
     <%= f.text_area :tasting_notes, size: "50 x 10", class: "form-control", placeholder: "Oodles of black cherry and sour cherry fill the aroma and flood the flavors of this full-bodied, concentrated and deeply fruity wine. The ripeness is balanced by good fruit acidity, making the wine both seductive and refreshing to sip." %>
   </div>
+  <span class="picture"><strong>Add a photo!</strong>
+    <%= f.file_field :picture %></span>
   <%= f.submit "Submit", class: "btn btn-block" %>
 <% end %>
