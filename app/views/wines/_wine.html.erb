@@ -1,5 +1,5 @@
 <li id="wine-<%= wine.id %>">
-  <%= link_to gravatar_for(wine.user, size: 50), wine.user %>
+  <%= image_tag wine.picture.url if wine.picture? %>
   <span class="user"><%= link_to wine.user.name, wine.user %></span><br>
   <span class="name"><strong>Name: </strong><%= wine.name %></span><br>
   <span class="winery"><strong>Winery: </strong><%= wine.winery %></span><br>
