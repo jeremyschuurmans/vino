@@ -6,7 +6,7 @@
       <h1>Create a New Wine</h1>
       <br></br>
       <%= form_for(@wine) do |f| %>
-        <%= render 'error_messages' %>
+        <%= render 'layouts/error_messages', object: f.object %>
         <div class="form-group">
           <%= f.label :name, :class => field_class(@wine, :name) %>
           <%= f.text_field :name, class: "form-control", placeholder: "Ada Pinot Noir" %>
@@ -35,7 +35,7 @@
           <%= f.label :tasting_notes, :class => field_class(@wine, :tasting_notes) %>
           <%= f.text_area :tasting_notes, size: "50 x 10", class: "form-control", placeholder: "Oodles of black cherry and sour cherry fill the aroma and flood the flavors of this full-bodied, concentrated and deeply fruity wine. The ripeness is balanced by good fruit acidity, making the wine both seductive and refreshing to sip." %>
         </div>
-        <%= f.submit "Sign Up", class: "btn btn-block" %>
+        <%= f.submit "Submit", class: "btn btn-block" %>
       <% end %>
     </div>
   </div>
