@@ -32,3 +32,9 @@
 
 #Ignore Spring files.
 /spring/*.pid
+
+# Ignore uploaded images
+/public/uploads
+
+# Ignore carrierwave configuration
+/config/initializers/carrier_wave.rb

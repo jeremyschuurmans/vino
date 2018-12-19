@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/new_wine', to: 'wines#new'
   resources :users
+  resources :wines, only: [:new, :create, :edit, :update, :destroy]
 end
