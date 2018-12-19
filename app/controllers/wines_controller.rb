@@ -1,5 +1,6 @@
 class WinesController < ApplicationController
-  before_action :log_in_check, only: [:create, :destroy]
+  before_action :log_in_check, only: [:create, :edit, :destroy]
+  before_action :correct_user_check, only: [:edit, :destroy]
 
   def new
     @wine = Wine.new
@@ -34,13 +35,20 @@ class WinesController < ApplicationController
   end
 
   def destroy
-    
+    @user = current_user
+    @wine.destroy
+    flash[:success] = "Wine deleted"
+    redirect_back(fallback_location: root_url)
   end
 
   private
 
     def wine_params
-      params.require(:wine).permit(:name, :winery, :vintage, :origin, :price,
-                                                     :rating, :tasting_notes)
+      params.require(:wine).permit(:name, :winery, :vintage, :origin, :price, :rating, :tasting_notes)
+    end
+
+    def correct_user_check
+      @wine = current_user.wines.find_by(id: params[:id])
+      redirect__back(fallback_location: root_url) if @wine.nil?
     end
 end
