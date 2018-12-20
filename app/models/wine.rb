@@ -10,7 +10,7 @@ class Wine < ApplicationRecord
             :price,
             :rating,
             :tasting_notes, presence: true
-  validate :picture_size
+  validate  :picture_size
 
   private
 
