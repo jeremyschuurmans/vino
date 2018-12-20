@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
                                   dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
   validates :name, presence: :true, length: { maximum: 100 }
@@ -39,4 +40,19 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  def follow(other_user)
+    following << other_user
+  end
+
+  def unfollow(other_user)
+    following.delete(other_user)
+  end
+
+  def following?(other_user)
+    following.include?(other_user)
+  end
+
+  private
+
 end

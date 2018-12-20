@@ -4,6 +4,8 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
     @user = User.create(name: "Harry Potter", email: "hpotter@hogwarts.edu", password: "quidditch", password_confirmation: "quidditch")
+    @user_2 = User.create(name: "Ron Weasley", email: "rweasley@hogwarts.edu", password: "scabbers", password_confirmation: "scabbers")
+
   end
 
   test "should be valid" do
@@ -85,6 +87,18 @@ class UserTest < ActiveSupport::TestCase
     assert_difference 'Wine.count', -1 do
       @user.destroy
     end
-
   end
+
+  test "should follow and unfollow a user" do
+    harry = @user
+    ron = @user_2
+    assert_not harry.following?(ron)
+    harry.follow(ron)
+    assert harry.following?(ron)
+    harry.unfollow(ron)
+    assert_not harry.following?(ron)
+  end
+
+
+
 end
