@@ -1,15 +1,21 @@
-<li id="wine-<%= wine.id %>">
-  <%= image_tag wine.picture.url if wine.picture? %>
-  <span class="user"><%= link_to wine.user.name, wine.user %></span><br>
-  <span class="name"><strong>Name: </strong><%= wine.name %></span><br>
-  <span class="winery"><strong>Winery: </strong><%= wine.winery %></span><br>
-  <span class="vintage"><strong>Vintage: </strong><%= wine.vintage %></span><br>
-  <span class="origin"><strong>Origin: </strong><%= wine.origin %></span><br>
-  <span class="price"><strong>Price: </strong><%= wine.price %></span><br>
-  <span class="rating"><strong>Rating: </strong><%= wine.rating %></span><br>
-  <span class="tasting_notes"><strong>Tasting Notes: </strong><%= wine.tasting_notes %></span><br>
-  <span class="timestamp">Posted <%= time_ago_in_words(wine.created_at) %> ago.</span><br>
-  <% if current_user?(wine.user) %>
-    <%= link_to "Delete", wine, method: :delete, data: { confirm: "Are you certain?" } %>
-  <% end %>
-</li>
+<% @user.wines.each do |wine| %>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="well">
+        <%= image_tag wine.picture.url if wine.picture? %>
+        <h3><%= wine.name %></h3><br>
+        <p><strong>Winery: </strong><%= wine.winery %><br>
+           <strong>Vintage: </strong><%= wine.vintage %><br>
+           <strong>Origin: </strong><%= wine.origin %><br>
+           <strong>Price: </strong><%= wine.price %><br>
+           <strong>Rating: </strong><%= wine.rating %><br>
+           <strong>Tasting Notes: </strong><%= wine.tasting_notes %><br></br>
+           <span class="timestamp">Posted <%= time_ago_in_words(wine.created_at) %> ago.</span><br>
+           <% if current_user?(wine.user) %>
+            <%= link_to "Delete", wine, method: :delete, data: { confirm: "Are you certain?" } %>
+           <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>

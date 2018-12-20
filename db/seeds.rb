@@ -16,13 +16,13 @@ end
 
 users = User.order(:created_at).take(6)
 50.times do
-  name = Faker::Lorem.sentence(5)
-  winery = Faker::Lorem.sentence(5)
-  vintage = Faker::Lorem.sentence(5)
-  origin = Faker::Lorem.sentence(5)
-  price = Faker::Lorem.sentence(5)
-  rating = Faker::Lorem.sentence(5)
-  tasting_notes = Faker::Lorem.sentence(5)
+  name = Faker::Lorem.sentence
+  winery = Faker::Lorem.sentence
+  vintage = Faker::Lorem.sentence
+  origin = Faker::Lorem.sentence
+  price = Faker::Lorem.sentence
+  rating = Faker::Lorem.sentence
+  tasting_notes = Faker::Lorem.sentence
   users.each { |user| user.wines.create!(name: name,
                                          winery: winery,
                                          vintage: vintage,

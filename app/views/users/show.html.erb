@@ -2,15 +2,10 @@
 
 <div class="container text-center">
   <div class="row">
-    <div class="col-sm-3 well">
+    <div class="col-sm-3 well sticky">
       <div class="well">
         <%= @user.name %>
         <%= gravatar_for @user %>
-      </div>
-      <div class="alert alert-success fade in">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-        <p><strong>This is your profile page!</strong></p>
-        View and edit all your wines!
       </div>
       <h4>Learn More!</h4>
         <p><a href="https://winefolly.com/" target="_blank" rel="noopener">Wine Folly</a></p>
@@ -18,31 +13,22 @@
         <p><a href="https://en.wikipedia.org/wiki/Wine" target="_blank" rel="noopener">Wikipedia</a></p>
       </div>
     <div class="col-sm-7">
-      
-      <div class="row">
+
         <!-- <div class="col-sm-3">
           <div class="well">
            <p>John</p>
            <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
           </div>
         </div> -->
-        <% if @user.wines.any? %>
+      <% if @user.wines.any? %>
         <h3>Wines (<%= @user.wines.count %>)</h3>
-        <div class="col-sm-12">
-          <% @user.wines.each do %>
-          <div class="well">
-            <ol class="wines">
-              <%= render @wines %>
-            </ol>
-          </div>
-          <% end %>
-        </div>
-        <% end %>
-      </div>
+      <%= render @wines %>
       <%= will_paginate @wines %>
+      <% end %>
     </div>
 
-    <div class="col-sm-2 well">
+
+    <div class="col-sm-2 well sticky">
       <div class="thumbnail">
         <p>Upcoming Events:</p>
         <img src="https://picsum.photos/400/?random" alt="Avatar">
@@ -64,6 +50,5 @@
         </div>
         <p>Scavi and Ray Prosecco</p>
       </div>
-    </div>
-  </div>
+   </div>
 </div>
