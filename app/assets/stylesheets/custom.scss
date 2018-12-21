@@ -58,6 +58,18 @@ body {
   background-color: #ffffff;
 }
 
+.follows a {
+  color: gray;
+  &:hover {
+    text-decoration: none;
+    color: $navy-blue;
+  }
+}
+
+strong {
+  display: block;
+}
+
 /* center column styles */
 
 .well {
