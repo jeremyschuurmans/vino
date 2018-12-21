@@ -14,6 +14,7 @@
   background-color: #3b5998;
   border: 0;
   border-radius: 0;
+  z-index: 1;
     p {
       font-family: 'Noto Sans SC', sans-serif;
       font-size: 40px;
@@ -103,6 +104,10 @@
   width: 100%;
   margin-top: 45px;
   @include box-sizing;
+}
+
+ul {
+  list-style-type: none;
 }
 
 /* "made with <heart> by me" */
