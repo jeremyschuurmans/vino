@@ -69,4 +69,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_url
   end
+
+  test "should not allow user to view following when not logged in" do
+    get following_user_path(@user)
+    assert_redirected_to login_url
+  end
+
+  test "should not allow users to view followers when not logged in" do
+    get followers_user_path(@user)
+    assert_redirected_to login_url
+  end
 end

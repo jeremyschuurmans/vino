@@ -3,8 +3,8 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-sm-3 well sticky">
+      <strong><%= @user.name %></strong>
       <div class="well">
-        <%= @user.name %>
         <%= gravatar_for @user %>
       </div>
       <section class="follows">
@@ -12,7 +12,7 @@
         <%= render 'follow_unfollow' if logged_in? %>
       </section>
 
-      <h4>Learn More!</h4>
+      <p>Our editors' favorite wine resources:</p>
         <p><a href="https://winefolly.com/" target="_blank" rel="noopener">Wine Folly</a></p>
         <p><a href="https://www.winespectator.com/" target="_blank" rel="noopener">Wine Spectator</a></p>
         <p><a href="https://en.wikipedia.org/wiki/Wine" target="_blank" rel="noopener">Wikipedia</a></p>
@@ -29,11 +29,13 @@
         <h3>Wines (<%= @user.wines.count %>)</h3>
       <%= render @wines %>
       <%= will_paginate @wines %>
+      <% else %>
+        <h4>You don't have any wines yet. <%= link_to "Create a new journal entry!", new_wine_path %></h4>
       <% end %>
     </div>
 
 
-    <div class="col-sm-2 well sticky">
+    <div class="col-sm-2 well">
       <div class="thumbnail">
         <p>Upcoming Events:</p>
         <img src="https://picsum.photos/400/?random" alt="Avatar">
