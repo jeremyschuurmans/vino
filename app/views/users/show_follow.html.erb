@@ -14,7 +14,7 @@
     </div>
     </div>
       <% if @users.any? %>
-        <div class="user_avatars">
+        <div class="user-avatars">
           <% @users.each do |user| %>
             <%= link_to gravatar_for(user, size: 30), user %>
           <% end %>
@@ -24,11 +24,13 @@
   <div class="col-sm-9">
     <h3><%= @title %></h3>
     <% if @users.any? %>
-      <ul class="users follow">
+    <div id="navcontainer">
+      <ul class="users">
         <%= render @users %>
       </ul>
       <%= will_paginate %>
     <% end %>
+    </div>
   </div>
 </div>
 </div>
