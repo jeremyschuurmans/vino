@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/new_wine', to: 'wines#new'
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :wines, only: [:new, :create, :edit, :update, :destroy]
 end
