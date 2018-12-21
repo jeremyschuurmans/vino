@@ -9,7 +9,9 @@
       </div>
       <section class="follows">
         <%= render 'follows' %>
+        <%= render 'follow_unfollow' if logged_in? %>
       </section>
+
       <h4>Learn More!</h4>
         <p><a href="https://winefolly.com/" target="_blank" rel="noopener">Wine Folly</a></p>
         <p><a href="https://www.winespectator.com/" target="_blank" rel="noopener">Wine Spectator</a></p>
