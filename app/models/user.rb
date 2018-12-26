@@ -45,9 +45,9 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
-  def feed
+  def feed_data
     following_ids = "SELECT followed_id FROM relationships
-                     WHERE followe_id = :user_id"
+                     WHERE followed_id = :user_id"
     Wine.where("user_id IN (#{following_ids}) OR user_id = :user_id", following_ids: following_ids, user_id: id)
   end
 

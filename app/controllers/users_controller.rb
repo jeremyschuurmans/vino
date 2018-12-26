@@ -50,6 +50,14 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def feed
+    if logged_in?
+      @user = current_user
+      @wine = current_user.wines.build
+      @feed_wines = current_user.feed_data.paginate(page: params[:page])
+    end
+  end
+
   def following
     @title = "Following"
     @user = User.find(params[:id])
