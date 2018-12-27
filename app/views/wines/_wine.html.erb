@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="well">
+        <div class="wine">
         <%= image_tag wine.picture.url if wine.picture? %>
         <h3><%= wine.name %></h3><br>
         <p><strong>Winery: </strong><%= wine.winery %><br>
@@ -15,6 +16,7 @@
             <%= link_to "Delete", wine, method: :delete, data: { confirm: "Are you certain?" } %>
            <% end %>
         </p>
+        </div>
       </div>
     </div>
   </div>

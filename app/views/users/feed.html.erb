@@ -11,6 +11,7 @@
         <%= render 'follows' %>
         <%= render 'follow_unfollow' if logged_in? %>
       </section>
+    </div>
       <div class="col-sm-9">
 
           <!-- <div class="col-sm-3">
@@ -19,13 +20,14 @@
              <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
             </div>
           </div> -->
-        <% if @feed_wines.any? %>
+        <% if @feed_items.any? %>
           <ol class="wines">
-            <%= render @feed_wines %>
+            <li><%= render @feed_items %></li>
           </ol>
-          <%= will_paginate @feed_wines %>
+          <%= will_paginate @feed_items %>
+        <% else %>
+          <h1> Nothin' to see here </h1>
         <% end %>
       </div>
-    </div>
-  </div>
+   </div>
 </div>

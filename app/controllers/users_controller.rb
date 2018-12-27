@@ -51,11 +51,8 @@ class UsersController < ApplicationController
   end
 
   def feed
-    if logged_in?
-      @user = current_user
-      @wine = current_user.wines.build
-      @feed_wines = current_user.feed_data.paginate(page: params[:page])
-    end
+    @user = current_user
+    @feed_items = @user.feed.paginate(page: params[:page])
   end
 
   def following
