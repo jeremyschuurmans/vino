@@ -46,7 +46,7 @@ class User < ApplicationRecord
   end
 
   def feed
-    Wine.where("user_id = ?", id)
+    Wine.where("user_id IN (?) OR user_id = ?", following_ids, id)
   end
 
   def follow(other_user)
