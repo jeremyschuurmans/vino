@@ -20,7 +20,7 @@
              <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
             </div>
           </div> -->
-          <% @user.feed.each do |feed_item| %>
+          <% @feed_items.each do |feed_item| %>
             <div class="row">
               <div class="col-sm-12">
                 <div class="wine">
@@ -38,6 +38,7 @@
               </div>
             </div>
           <% end %>
-      <!-- </div> -->
+          <%= will_paginate @feed_items %>
+      </div>
    </div>
 </div>

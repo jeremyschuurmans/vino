@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
   def feed
     @user = current_user
-    @feed_items = @user.feed
+    @feed_items = @user.feed.paginate(page: params[:page])
   end
 
   def following
