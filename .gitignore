@@ -38,3 +38,6 @@
 
 # Ignore carrierwave configuration
 /config/initializers/carrier_wave.rb
+
+#Ignore .env
+/.env
