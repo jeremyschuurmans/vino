@@ -54,9 +54,11 @@ body {
 .col-sm-2 {
   background-color: #ffffff;
   margin-top: 56px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 .col-sm-3 {
   background-color: #ffffff;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 
 .follows a {
@@ -85,6 +87,14 @@ strong {
 
 /* center column styles */
 
+.col-sm-9 {
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
+.wine {
+  border: 2px solid black;
+  margin: 10px; 
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
 .well {
   background-color: #ffffff;
 }
