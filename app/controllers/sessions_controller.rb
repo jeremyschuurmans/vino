@@ -2,19 +2,22 @@ class SessionsController < ApplicationController
   layout "alternate"
 
   def new
+    @user = User.new
   end
 
   def create
     if auth
       @user = User.find_by(email: auth['info']['email'])
       if @user
-        session[:user_id] = @user.id
+        log_in @user
         redirect_to user_path(@user)
 
       else
         @user = User.create(name: auth['info']['name'], email: auth['info']['email'], password: SecureRandom.urlsafe_base64, password_confirmation: SecureRandom.urlsafe_base64)
-        session[:user_id] = @user.id
-        redirect_to user_path(@user)
+
+          log_in @user
+          redirect_to user_path(@user)
+      
       end
     else
       @user = User.find_by(email: params[:session][:email].downcase)
