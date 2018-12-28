@@ -11,13 +11,11 @@ class SessionsController < ApplicationController
       if @user
         log_in @user
         redirect_to user_path(@user)
-
       else
-        @user = User.create(name: auth['info']['name'], email: auth['info']['email'], password: SecureRandom.urlsafe_base64, password_confirmation: SecureRandom.urlsafe_base64)
-
-          log_in @user
-          redirect_to user_path(@user)
-      
+        secure_password = SecureRandom.urlsafe_base64
+        @user = User.create(name: auth['info']['name'], email: auth['info']['email'], password: secure_password, password_confirmation: secure_password)
+        log_in @user
+        redirect_to user_path(@user)
       end
     else
       @user = User.find_by(email: params[:session][:email].downcase)
