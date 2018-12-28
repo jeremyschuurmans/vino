@@ -1,0 +1,7 @@
+Comment on <%= @wine.name %>
+
+<%= form_for [@wine, Comment.new] do |f| %>
+  <%= f.text_area :body %>
+
+  <%= f.submit %>
+<% end %>

@@ -18,6 +18,10 @@ class WinesController < ApplicationController
     end
   end
 
+  def show
+    @wine = Wine.find(params[:id])
+  end
+
   def edit
     @wine = Wine.find(params[:id])
     render :layout => 'alternate'

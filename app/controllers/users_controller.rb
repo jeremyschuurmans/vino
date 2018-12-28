@@ -16,7 +16,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @wines = @user.wines.paginate(page: params[:page])
-    @comments = Comment.all
+    @wine = Wine.find(params[:id])
+    @comments = Comment.select { |comment| comment.commentable_id == @wine.id }
   end
 
   def create

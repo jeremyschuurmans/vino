@@ -3,10 +3,13 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
+    @wine = Wine.find(params[:wine_id])
   end
 
   def create
-    @comment = @commentable.comments.new(comment_params)
+    @wine = Wine.find(params[:wine_id])
+    @comment = @commentable.comments.create(comment_params)
+    @comment.user_id = current_user.id
     if @comment.save
       flash[:success] = "Comment posted!"
       redirect_back(fallback_location: root_path)
@@ -19,7 +22,7 @@ class CommentsController < ApplicationController
   private
 
     def comment_params
-      params.require(:comment).permit(:body)
+      params.require(:comment).permit(:body, :user_id)
     end
 
     def find_commentable
