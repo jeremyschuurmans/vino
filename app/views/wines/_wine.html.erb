@@ -15,6 +15,14 @@
             <%= link_to "Delete", wine, method: :delete, data: { confirm: "Are you certain?" } %>
            <% end %>
         </p>
+        <h3>Comments:</h3>
+        <%= form_for [wine, Comment.new] do |f| %>
+          <%= f.text_area :body, placeholder: "Comment on this wine" %><br>
+          <%= f.submit "Add Comment" %>
+        <% end %>
+        <ul>
+          <%= render 'comments/comment', collection: wine.comments %>
+        </ul>
       </div>
     </div>
   </div>

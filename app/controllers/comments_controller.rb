@@ -6,11 +6,13 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @commentable.comments.build(comment_params)
-    if @comment
-      redirect_to :back, flash.now[:success] = "Comment posted!"
+    @comment = @commentable.comments.new(comment_params)
+    if @comment.save
+      flash[:success] = "Comment posted!"
+      redirect_back(fallback_location: root_path)
     else
-      redirect_to :back, flash.now[:danger] = "Comment not posted"
+      flash[:danger] = "Comment not posted"
+      redirect_back(fallback_location: root_path)
     end
   end
 

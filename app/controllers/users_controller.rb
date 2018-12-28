@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @wines = @user.wines.paginate(page: params[:page])
+    @comments = Comment.all
   end
 
   def create
