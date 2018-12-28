@@ -13,6 +13,12 @@ Rails.application.routes.draw do
       get :feed
     end
   end
-  resources :wines,         only: [:new, :create, :edit, :update, :destroy]
+  resources :wines, only: [:new, :create, :edit, :update, :destroy]
+  resources :wines do
+    resources :comments
+  end
   resources :relationships, only: [:create, :destroy]
+  resources :comments do
+    resources :comments
+  end
 end
