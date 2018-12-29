@@ -2,20 +2,21 @@
 
 <div class="container text-center">
   <div class="row">
-    <div class="col-sm-12 well">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6 well">
       <h1>All Members</h1>
       <%= will_paginate %>
         <div class="well">
-
-
-      <ul class="users">
-        <% @users.each do |user| %>
-        <%= render @users %>
-        <% end %>
-      </ul>
-
+        <ul class="users">
+          <% @users.each do |user| %>
+            <%= render @users %>
+          <% end %>
+        </ul>
       </div>
       <%= will_paginate %>
+    </div>
+    <div class="col-sm-3">
     </div>
   </div>
 </div>

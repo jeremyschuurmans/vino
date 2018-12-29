@@ -5,8 +5,12 @@
     <div class="col-sm-3 well">
       <strong><%= @user.name %></strong>
       <div class="well">
-        <div class="user-thumbnail">
-        <%= image_tag @user.picture.url if @user.picture? %>
+        <div class="thumbnail">
+          <% if @user.picture? %>
+            <%= image_tag @user.picture.url %>
+          <% else %>
+            <%= image_tag 'https://picsum.photos/200/?random' %>
+          <% end %>
         </div>
       </div>
       <section class="follows">

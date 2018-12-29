@@ -37,8 +37,6 @@
   margin-right: auto;
   border: 3px solid black;
   box-shadow: 60px -16px #dfe3ee;
-
-
 }
 
 .btn {
@@ -47,6 +45,20 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+button {
+  background-color: #dfe3ee;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+    &:hover {
+      background-color: #8b9dc3;
+      a {
+        color: white;
+        text-decoration: none;
+    }
+  }
 }
 
 /* forms */

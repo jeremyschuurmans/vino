@@ -4,7 +4,13 @@
   <div class="row">
     <div class="col-sm-3 well">
       <div class="well">
-        <%= image_tag @user.picture.url if @user.picture? %>
+        <div class="thumbnail">
+          <% if @user.picture? %>
+            <%= image_tag @user.picture.url %>
+          <% else %>
+            <%= image_tag 'https://picsum.photos/200/?random' %>
+          <% end %>
+        </div>
       <h1><%= @user.name %></h1>
       <span><strong><%= @user.wines.count %> wines<strong></span>
       <h5><%= link_to "back to profile", @user %></h5>
