@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :log_in_check, only: [:index, :edit, :update, :destroy, :following, :followers, :feed]
+  before_action :log_in_check, only: [:index, :show, :edit, :update, :destroy, :feed, :following, :followers]
   before_action :correct_user_check, only: [:edit, :update, :feed]
   before_action :admin_user, only: :destroy
 
