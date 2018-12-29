@@ -9,7 +9,4 @@ class StaticPagesController < ApplicationController
       render 'home'
     end
   end
-
-  def about
-  end
 end
