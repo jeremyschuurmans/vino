@@ -12,10 +12,10 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       flash[:success] = "Comment posted!"
-      redirect_back(fallback_location: root_path)
+      redirect_to wine_path(@wine)
     else
       flash[:danger] = "Comment not posted"
-      redirect_back(fallback_location: root_path)
+      redirect_to wine_path(@wine)
     end
   end
 
