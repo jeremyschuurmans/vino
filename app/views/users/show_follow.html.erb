@@ -11,7 +11,7 @@
             <%= image_tag 'https://picsum.photos/200/?random' %>
           <% end %>
         </div>
-      <h1><%= @user.name %></h1>
+      <p><strong><%= @user.name %></strong></p>
       <span><strong><%= @user.wines.count %> wines<strong></span>
       <h5><%= link_to "back to profile", @user %></h5>
     <br>
@@ -22,7 +22,11 @@
       <% if @users.any? %>
         <div class="user-avatars">
           <% @users.each do |user| %>
-            <%= link_to gravatar_for(user, size: 30), user %>
+            <% if user.picture? %>
+              <%= image_tag user.picture.url, size: 30 %>
+            <% else %>
+              <%= image_tag 'https://picsum.photos/30/?random' %>
+            <% end %>
           <% end %>
         </div>
       <% end %>
@@ -34,9 +38,9 @@
       <ul class="users">
         <%= render @users %>
       </ul>
+    </div>
       <%= will_paginate %>
     <% end %>
-    </div>
   </div>
 </div>
 </div>
