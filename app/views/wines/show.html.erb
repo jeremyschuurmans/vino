@@ -5,7 +5,9 @@
     <div class="col-sm-3 well">
       <strong><%= @user.name %></strong>
       <div class="well">
-        <%= gravatar_for @user %>
+        <div class="user-thumbnail">
+        <%= image_tag @user.picture.url if @user.picture? %>
+        </div>
       </div>
       <section class="follows">
         <%= render 'users/follows' %>
