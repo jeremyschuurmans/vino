@@ -1,7 +1,16 @@
-Comment on <%= @wine.name %>
+<% provide(:title, "Add a Comment") %>
 
-<%= form_for [@wine, Comment.new] do |f| %>
-  <%= f.text_area :body %>
-
-  <%= f.submit %>
-<% end %>
+<div class="container-fluid center">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Comment on <%= @wine.name %></h1>
+      <br></br>
+      <div class="comment-form">
+      <%= form_for [@wine, Comment.new] do |f| %>
+          <%= f.text_area :body %><br>
+        <%= f.submit %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
