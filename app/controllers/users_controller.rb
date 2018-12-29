@@ -55,6 +55,7 @@ class UsersController < ApplicationController
   def feed
     @user = current_user
     @feed_items = @user.feed.paginate(page: params[:page])
+    @comments = Comment.all
   end
 
   def following
