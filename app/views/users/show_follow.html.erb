@@ -8,7 +8,7 @@
           <% if @user.picture? %>
             <%= image_tag @user.picture.url %>
           <% else %>
-            <%= image_tag 'https://picsum.photos/200/?random' %>
+            <%= image_tag "https://api.adorable.io/avatars/285/#{@user.name}.png" %>
           <% end %>
         </div>
       <p><strong><%= @user.name %></strong></p>
@@ -25,7 +25,7 @@
             <% if user.picture? %>
               <%= image_tag user.picture.url, size: 30 %>
             <% else %>
-              <%= image_tag 'https://picsum.photos/30/?random' %>
+              <%= image_tag 'https://lorempixel.com/30/30/people' %>
             <% end %>
           <% end %>
         </div>

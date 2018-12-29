@@ -4,25 +4,29 @@ User.create!(name: "Harry Potter",
              password_confirmation: "quidditch",
              admin: true)
 
-99.times do |n|
-  name = Faker::Name.name
-  email = "student-#{n+1}@hogwarts.edu"
-  password = "password"
+users = RandomuserLocal.generate(50)
+
+users.each do |user|
+  name = user[:name][:first].capitalize + " " + user[:name][:last].capitalize
+  email = user[:email]
+  password = user[:password] + user[:password]
+  password_confirmation = password
+  picture = user[:picture]
   User.create!(name: name,
                email: email,
                password: password,
-               password_confirmation: password)
+               password_confirmation: password_confirmation)
 end
 
 users = User.order(:created_at).take(6)
 50.times do
-  name = Faker::Lorem.sentence
-  winery = Faker::Lorem.sentence
-  vintage = Faker::Lorem.sentence
-  origin = Faker::Lorem.sentence
-  price = Faker::Lorem.sentence
-  rating = Faker::Lorem.sentence
-  tasting_notes = Faker::Lorem.sentence
+  name = Faker::Coffee.blend_name + " Cabernet Sauvignon"
+  winery = Faker::Beer.hop + " Vineyard and Wine Company"
+  vintage = Faker::Date.between(150.years.ago.year, Date.today.year)
+  origin = Faker::Nation.capital_city
+  price = Faker::Number.between(9, 112)
+  rating = Faker::Number.between(1, 10)
+  tasting_notes = Faker::Food.fruits + " on the nose, " + "prominent flavors of " + Faker::Coffee.notes
   users.each { |user| user.wines.create!(name: name,
                                          winery: winery,
                                          vintage: vintage,

@@ -89,8 +89,8 @@ GEM
     erubi (1.7.1)
     excon (0.62.0)
     execjs (2.7.0)
-    faker (1.7.3)
-      i18n (~> 0.5)
+    faker (1.9.1)
+      i18n (>= 0.7)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
@@ -373,6 +373,8 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rake (12.3.2)
+    randomuser-local-rails (0.4.0.6)
+      rails (>= 4.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -458,7 +460,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   dotenv-rails
-  faker (~> 1.7.3)
+  faker (~> 1.9.1)
   fog (~> 1.42)
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
@@ -474,6 +476,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.1, >= 5.2.1.1)
   rails-controller-testing (= 1.0.2)
+  randomuser-local-rails
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
