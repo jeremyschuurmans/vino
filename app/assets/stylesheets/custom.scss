@@ -57,6 +57,7 @@ body {
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 .col-sm-3 {
+  margin-top: 56px;
   background-color: #ffffff;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
@@ -87,12 +88,9 @@ strong {
 
 /* center column styles */
 
-.col-sm-9 {
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
-}
 .wine {
   border: 2px solid black;
-  margin: 10px; 
+  margin: 10px;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 .well {
@@ -103,9 +101,6 @@ h4 {
   padding-top: 150px;
 }
 
-// ul {
-//   list-style-type: none;
-// }
 #navcontainer ul
 {
 margin: 0;
@@ -131,28 +126,7 @@ background-color: #369;
 }
 
 
-/* set faded blue background color, white text and some padding */
-
-footer {
-  background-color: #8b9dc3;
-  color: white;
-  padding: 15px;
-  text-align: center;
-  .glyphicon-heart {
-    color: red;
-    font-size: 14px;
-    padding-top: 10px;
-  }
-}
-
 /* miscellaneous */
-
-.sticky {
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
-  margin-top: 56px;
-}
 
 .debug_dump {
   clear: both;

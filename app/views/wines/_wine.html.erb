@@ -16,15 +16,19 @@
            <% end %>
          </p>
            <% if wine.comments.any? %>
-           <h5>Comments:</h5>
+           <strong><h3>Comments:</h3></strong>
+           <div class="comments">
             <% @comments.each do |comment| %>
               <% if comment.commentable_id == wine.id %>
-                <%= comment.user.name %> says: <br>
-                "<%= comment.body %>"<br>
+                <i><%= comment.user.name %></i> says: <br>
+                <strong>"<%= comment.body %>"</strong><br>
               <% end %>
             <% end %>
+            </div>
           <% end %>
-        <%= link_to "Details", wine_path(wine) %>
+          <br>
+        <strong><%= link_to "Details", wine_path(wine) %></strong>
+        <br></br>
       </div>
     </div>
   </div>
