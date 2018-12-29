@@ -13,7 +13,8 @@
       </section>
     </div>
       <div class="col-sm-9">
-
+        <h3>Your feed</h3>
+        <% if @feed_items.any? %>
           <% @feed_items.each do |feed_item| %>
             <div class="row">
               <div class="col-sm-12">
@@ -27,12 +28,16 @@
                      <strong>Rating: </strong><%= feed_item.rating %><br>
                      <strong>Tasting Notes: </strong><%= feed_item.tasting_notes %><br></br>
                      <span class="timestamp">Posted <%= time_ago_in_words(feed_item.created_at) %> ago.</span><br>
+                     <strong><%= link_to "Details", wine_path(feed_item) %></strong>
                   </p>
                 </div>
               </div>
             </div>
           <% end %>
           <%= will_paginate @feed_items %>
+        <% else %>
+          <h4>You haven't followed anyone yet! <%= link_to "follow someone", users_path %> to start your feed. </h4>
+        <% end %>
       </div>
    </div>
 </div>

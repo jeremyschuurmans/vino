@@ -21,7 +21,7 @@
 
       <% if @user.wines.any? %>
         <h3>Wines (<%= @user.wines.count %>)</h3>
-      <%= render @wines %>
+      <%= render 'wines/wine' %>
       <%= will_paginate @wines %>
       <% else %>
         <h4>You don't have any wines yet. <%= link_to "Create a new journal entry!", new_wine_path %></h4>

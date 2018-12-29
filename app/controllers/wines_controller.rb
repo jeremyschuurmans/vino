@@ -19,6 +19,7 @@ class WinesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @wine = Wine.find(params[:id])
   end
 
