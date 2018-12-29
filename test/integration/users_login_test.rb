@@ -21,9 +21,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: { email: "hpotter@hogwarts.edu",
                                           password: 'quidditch' } }
     assert is_logged_in?
-    assert_redirected_to @user
+    assert_redirected_to feed_user_path(@user)
     follow_redirect!
-    assert_template 'users/show'
+    assert_template 'users/feed'
     assert_select "a[href=?]", login_path, count: 0
     assert_select "a[href=?]", logout_path
     assert_select "a[href=?]", user_path(@user)
