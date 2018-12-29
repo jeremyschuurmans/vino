@@ -35,7 +35,7 @@
     <h3><%= @title %></h3>
     <% if @users.any? %>
       <h1>All Members</h1>
-      <%= will_paginate %>
+        <%= will_paginate @users %>
           <div id="navcontainer">
         <ul class="users">
           <% @users.each do |user| %>
@@ -43,7 +43,7 @@
           <% end %>
         </ul>
       </div>
-      <%= will_paginate %>
+        <%= will_paginate @users %>
     <% end %>
   </div>
 </div>
