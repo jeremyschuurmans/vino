@@ -4,24 +4,24 @@
   <div class="row">
     <div class="col-sm-3 well">
       <strong><%= @user.name %></strong>
-      <div class="well">
         <div class="thumbnail">
           <% if @user.picture? %>
             <%= image_tag @user.picture.url %>
           <% else %>
             <%= image_tag "https://api.adorable.io/avatars/285/#{@user.name}.png" %>
           <% end %>
-        </div>
       </div>
       <section class="follows">
         <%= render 'users/follows' %>
         <%= render 'users/follow_unfollow' if logged_in? %>
       </section>
+      <div class="well">
 
       <p>Our editors' favorite wine resources:</p>
         <p><a href="https://winefolly.com/" target="_blank" rel="noopener">Wine Folly</a></p>
         <p><a href="https://www.winespectator.com/" target="_blank" rel="noopener">Wine Spectator</a></p>
         <p><a href="https://en.wikipedia.org/wiki/Wine" target="_blank" rel="noopener">Wikipedia</a></p>
+      </div>
       </div>
     <div class="col-sm-7">
       <h3>Details on <%= @wine.name %></h3>
