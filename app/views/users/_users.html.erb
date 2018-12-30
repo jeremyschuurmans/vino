@@ -1,0 +1,9 @@
+
+<% if @users.any? %>
+    <div id="navcontainer">
+      <ul class="users">
+        <%= render @users %>
+      </ul>
+    </div>
+    <%= will_paginate @users %>
+<% end %>

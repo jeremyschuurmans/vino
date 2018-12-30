@@ -1,0 +1,5 @@
+<% if @user.wines.count == 1 %>
+  <span><strong><%= @user.wines.count %> wine <strong></span>
+<% else %>
+  <span><strong><%= @user.wines.count %> wines <strong></span>
+<% end %>
