@@ -1,31 +1,31 @@
 <%= form_for(@wine) do |f| %>
   <%= render 'layouts/error_messages', object: f.object %>
   <div class="form-group">
-    <%= f.label :name, :class => field_class(@wine, :name) %>
+    <%= f.label :name %>
     <%= f.text_field :name, class: "form-control", placeholder: "Ada Pinot Noir" %>
   </div>
   <div class="form-group">
-    <%= f.label :winery, :class => field_class(@wine, :winery) %>
+    <%= f.label :winery %>
     <%= f.text_field :winery, class: "form-control", placeholder: "Lovelace Vineyard & Winery"%>
   </div>
   <div class="form-group">
-    <%= f.label :vintage, :class => field_class(@wine, :vintage) %>
+    <%= f.label :vintage %>
     <%= f.text_field :vintage, class: "form-control", placeholder: "2017" %>
   </div>
   <div class="form-group">
-    <%= f.label :origin, :class => field_class(@wine, :origin) %>
+    <%= f.label :origin %>
     <%= f.text_field :origin, class: "form-control", placeholder: "United Kingdom" %>
   </div>
   <div class="form-group">
-    <%= f.label :price, :class => field_class(@wine, :price) %>
+    <%= f.label :price %>
     <%= f.text_field :price, class: "form-control", placeholder: "$14" %>
   </div>
   <div class="form-group">
-    <%= f.label :rating, :class => field_class(@wine, :rating) %>
+    <%= f.label :rating %>
     <%= f.number_field :rating, class: "form-control", placeholder: "Choose a number between 0 and 10" %>
   </div>
   <div class="form-group">
-    <%= f.label :tasting_notes, :class => field_class(@wine, :tasting_notes) %>
+    <%= f.label :tasting_notes %>
     <%= f.text_area :tasting_notes, size: "50 x 10", class: "form-control", placeholder: "Oodles of black cherry and sour cherry fill the aroma and flood the flavors of this full-bodied, concentrated and deeply fruity wine. The ripeness is balanced by good fruit acidity, making the wine both seductive and refreshing to sip." %>
   </div>
   <span class="picture"><strong>Add a photo!</strong>

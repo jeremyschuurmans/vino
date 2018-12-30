@@ -38,11 +38,23 @@
                <strong>Rating: </strong><%= @wine.rating %><br>
                <strong>Tasting Notes: </strong><%= @wine.tasting_notes %><br></br>
                <span class="timestamp">Posted <%= time_ago_in_words(@wine.created_at) %> ago.</span><br>
+             </p>
+               <% if @wine.comments.any? %>
+               <strong><h3>Comments:</h3></strong>
+               <div class="comments">
+                <% @comments.each do |comment| %>
+                  <% if comment.commentable_id == @wine.id %>
+                    <i><%= comment.user.name %></i> says: <br>
+                    <strong>"<%= comment.body %>"</strong><br>
+                  <% end %>
+                <% end %>
+                </div>
+              <% end %>
                <% if current_user?(@wine.user) %>
                 <%= link_to "Delete", @wine, method: :delete, data: { confirm: "Are you certain?" } %>
                <% end %><br>
                <%= link_to "Add a comment", new_wine_comment_path(@wine) %>
-            </p>
+            <br></br>
           </div>
         </div>
       </div>

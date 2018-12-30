@@ -21,6 +21,7 @@ class WinesController < ApplicationController
   def show
     @user = current_user
     @wine = Wine.find(params[:id])
+    @comments = Comment.all
   end
 
   def edit
