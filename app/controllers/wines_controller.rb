@@ -53,6 +53,14 @@ class WinesController < ApplicationController
       params.require(:wine).permit(:name, :winery, :vintage, :origin, :price, :rating, :tasting_notes, :picture)
     end
 
+    def log_in_check
+      unless logged_in?
+        set_forwarding_url #helper method located in sessions_helper.rb
+        flash[:danger] = "Please log in to continue."
+        redirect_to login_url
+      end
+    end
+
     def correct_user_check
       @wine = current_user.wines.find_by(id: params[:id])
       redirect_back(fallback_location: root_url) if @wine.nil?

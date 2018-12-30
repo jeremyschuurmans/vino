@@ -11,7 +11,6 @@ users.each do |user|
   email = user[:email]
   password = user[:password] + user[:password]
   password_confirmation = password
-  picture = user[:picture]
   User.create!(name: name,
                email: email,
                password: password,
