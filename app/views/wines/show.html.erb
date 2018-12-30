@@ -3,85 +3,28 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-sm-3 well">
-      <strong><%= @user.name %></strong>
-        <div class="thumbnail">
-          <% if @user.picture? %>
-            <%= image_tag @user.picture.url %>
-          <% else %>
-            <%= image_tag "https://api.adorable.io/avatars/285/#{@user.name}.png" %>
-          <% end %>
-      </div>
+        <%= render 'users/profile_picture' %>
       <section class="follows">
         <%= render 'users/follows' %>
         <%= render 'users/follow_unfollow' if logged_in? %>
       </section>
       <div class="well">
 
-      <p>Our editors' favorite wine resources:</p>
-        <p><a href="https://winefolly.com/" target="_blank" rel="noopener">Wine Folly</a></p>
-        <p><a href="https://www.winespectator.com/" target="_blank" rel="noopener">Wine Spectator</a></p>
-        <p><a href="https://en.wikipedia.org/wiki/Wine" target="_blank" rel="noopener">Wikipedia</a></p>
+      <%= render 'users/links' %>
       </div>
-      </div>
+    </div>
     <div class="col-sm-7">
       <h3>Details on <%= @wine.name %></h3>
 
       <div class="row">
         <div class="col-sm-12">
-          <div class="wine">
-            <%= image_tag @wine.picture.url if @wine.picture? %>
-            <h3><%= @wine.name %></h3><br>
-            <p><strong>Winery: </strong><%= @wine.winery %><br>
-               <strong>Vintage: </strong><%= @wine.vintage %><br>
-               <strong>Origin: </strong><%= @wine.origin %><br>
-               <strong>Price: </strong><%= @wine.price %><br>
-               <strong>Rating: </strong><%= @wine.rating %><br>
-               <strong>Tasting Notes: </strong><%= @wine.tasting_notes %><br></br>
-               <span class="timestamp">Posted <%= time_ago_in_words(@wine.created_at) %> ago.</span><br>
-             </p>
-               <% if @wine.comments.any? %>
-               <strong><h3>Comments:</h3></strong>
-               <div class="comments">
-                <% @comments.each do |comment| %>
-                  <% if comment.commentable_id == @wine.id %>
-                    <i><%= comment.user.name %></i> says: <br>
-                    <strong>"<%= comment.body %>"</strong><br>
-                  <% end %>
-                <% end %>
-                </div>
-              <% end %>
-               <% if current_user?(@wine.user) %>
-                <%= link_to "Delete", @wine, method: :delete, data: { confirm: "Are you certain?" } %>
-               <% end %><br>
-               <%= link_to "Add a comment", new_wine_comment_path(@wine) %>
-            <br></br>
-          </div>
+          <%= render 'wine_details' %>
         </div>
       </div>
     </div>
 
 
     <div class="col-sm-2 well">
-      <div class="thumbnail">
-        <p>Upcoming Events:</p>
-        <img src="https://picsum.photos/400/?random" alt="Avatar">
-        <p><strong>Wine & Art Fest</strong></p>
-        <p>May to November 2018</p>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#eventModal">Info</button>
-      </div>
-      <div class="well">
-        <p>Sponsored</p>
-        <div class="thumbnail">
-          <a href="#" data-toggle="modal" data-target="#advertModalOne"><img src="/images/wine_ad_1.png" alt="Thierry and Guy wine ad"></a>
-        </div>
-        <p>Thierry and Guy</p>
-      </div>
-      <div class="well">
-        <p>Sponsored</p>
-        <div class="thumbnail">
-          <a href="#" data-toggle="modal" data-target="#advertModalTwo"><img src="/images/wine_ad_2.png" alt="Scavi and Ray Prosecco"></a>
-        </div>
-        <p>Scavi and Ray Prosecco</p>
-      </div>
+      <%= render 'users/ads' %>
    </div>
 </div>
