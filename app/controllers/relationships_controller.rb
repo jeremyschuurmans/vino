@@ -15,12 +15,12 @@ class RelationshipsController < ApplicationController
 
   private
 
-  def log_in_check
-    unless logged_in?
-      set_forwarding_url #helper method located in sessions_helper.rb
-      flash[:danger] = "Please log in to continue."
-      redirect_to login_url
+    def log_in_check
+      unless logged_in?
+        set_forwarding_url #helper method located in sessions_helper.rb
+        flash[:danger] = "Please log in to continue."
+        redirect_to login_url
+      end
     end
-  end
-  
+
 end
