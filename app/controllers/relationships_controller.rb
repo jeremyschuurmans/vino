@@ -12,4 +12,15 @@ class RelationshipsController < ApplicationController
     current_user.unfollow(@user)
     redirect_to @user
   end
+
+  private
+
+  def log_in_check
+    unless logged_in?
+      set_forwarding_url #helper method located in sessions_helper.rb
+      flash[:danger] = "Please log in to continue."
+      redirect_to login_url
+    end
+  end
+  
 end

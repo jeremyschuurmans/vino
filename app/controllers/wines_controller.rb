@@ -1,7 +1,6 @@
 class WinesController < ApplicationController
   before_action :log_in_check, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :correct_user_check, only: [:edit, :update, :destroy]
-  after_action :save_user_url, only: [:new]
 
   def new
     @wine = Wine.new
