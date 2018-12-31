@@ -1,6 +1,8 @@
 
 /* mixins & variables */
 
+$navy-blue: #3b5998;
+
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -47,17 +49,15 @@
   margin-right: auto;
 }
 
-button {
+.btn-outline-primary {
   background-color: #dfe3ee;
   color: black;
   font-family: 'Roboto', sans-serif;
   letter-spacing: 1px;
     &:hover {
       background-color: #8b9dc3;
-      a {
-        color: white;
-        text-decoration: none;
-    }
+      color: white;
+      border: 2px solid $navy-blue;
   }
 }
 
