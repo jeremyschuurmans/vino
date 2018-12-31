@@ -109,6 +109,10 @@ $navy-blue: #3b5998;
   margin-left: 0;
 }
 
+.form-control:hover {
+  border: 2px solid $navy-blue;
+}
+
 
 /* miscellaneous */
 
