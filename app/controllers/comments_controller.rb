@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
 
   def create
     @wine = Wine.find(params[:wine_id])
+    @user = @wine.user
     @comment = @commentable.comments.create(comment_params)
     @comment.user_id = current_user.id
     if @comment.save

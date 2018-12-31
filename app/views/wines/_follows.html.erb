@@ -1,0 +1,10 @@
+<% @wine.user %>
+<div class="follows">
+  <strong id="following" class="follows">
+    <%= link_to "#{@wine.user.following.count} following", following_user_path(@wine.user) %>
+  </strong>
+  <br>
+  <strong id="followers" class="follows">
+    <%= link_to "#{@wine.user.followers.count} followers", followers_user_path(@wine.user) %>
+  </strong>
+</div>

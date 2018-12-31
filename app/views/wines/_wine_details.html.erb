@@ -26,3 +26,4 @@
      <%= link_to "Add a comment", new_wine_comment_path(@wine) %>
   <br></br>
 </div>
+  <h3>Back to <%= link_to "#{@wine.user.name}", user_path(@wine.user) %></h3>
