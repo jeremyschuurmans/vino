@@ -39,8 +39,6 @@ ActiveRecord::Schema.define(version: 2018_12_29_051111) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "admin", default: false
-    t.string "image"
-    t.string "uid"
     t.string "picture"
     t.index ["email"], name: "index_users_on_email", unique: true
   end

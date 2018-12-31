@@ -1,5 +1,5 @@
 class RemoveUidColumnFromUsers < ActiveRecord::Migration[5.2]
-  def down
-    remove_column :users, :uid
+  def change
+    remove_column :users, :uid, :string
   end
 end
