@@ -75,6 +75,7 @@ $navy-blue: #3b5998;
   &:hover {
     background-color: #8b9dc3;
     color: white;
+    border: 2px solid $navy-blue;
   }
 }
 .col-sm-12 .comments {
