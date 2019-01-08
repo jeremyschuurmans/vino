@@ -40,4 +40,4 @@
 /config/initializers/carrier_wave.rb
 
 #Ignore .env
-/.env
+.env
