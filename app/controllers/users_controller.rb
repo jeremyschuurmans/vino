@@ -46,9 +46,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User has been removed"
-    redirect_to users_url
+    if current_user.admin?
+      User.find(params[:id]).destroy
+      flash[:success] = "User has been removed"
+      redirect_to users_url
+    else
+      redirect_to root_url
+    end
   end
 
   def feed

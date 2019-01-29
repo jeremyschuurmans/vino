@@ -4,7 +4,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   def setup
     @user   = User.create(name: "Harry Potter", email: "hpotter@hogwrts.edu", password: "quidditch", password_confirmation: "quidditch", admin: true)
-    @user_2 = User.create(name: "Draco Malfoy", email: "dmalfoy@hogwarts.edu", password: "onedarkpassword", password_confirmation: "onedarkpassword")
+    @user_2 = User.create(name: "Draco Malfoy", email: "dmalfoy@hogwarts.edu", password: "onedarkpassword", password_confirmation: "onedarkpassword", admin: false)
   end
 
   test "should redirect user profile page when not logged in" do
