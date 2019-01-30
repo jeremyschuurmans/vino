@@ -1,3 +1,5 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 /* mixins & variables */
 
@@ -16,6 +18,9 @@ $navy-blue: #3b5998;
   background-color: #3b5998;
   border: 0;
   border-radius: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 1;
     p {
       font-family: 'Noto Sans SC', sans-serif;
