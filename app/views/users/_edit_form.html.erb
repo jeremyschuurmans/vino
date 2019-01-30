@@ -16,18 +16,5 @@
     <%= f.label :password_confirmation, "Enter Your Password Again" %>
     <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= f.label :picture, "Change your profile picture" %>
-    <%= f.file_field :picture, accept: 'image/jpeg, image/jpg, image/gif, image/png' %>
-  </div>
   <%= f.submit "Save Changes", class: "btn btn-block" %>
 <% end %>
-
-<script type="text/javascript">
-  $('#user_picture').bind('change', function() {
-    let fileSize = this.files[0].size/1024/1024;
-    if (fileSize > 5) {
-      alert('Your file is too big. Please choose a smaller image.');
-    }
-  });
-</script>

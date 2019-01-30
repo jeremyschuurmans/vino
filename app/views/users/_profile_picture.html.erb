@@ -1,8 +1,4 @@
 <strong><%= @user.name %></strong>
   <div class="thumbnail">
-    <% if @user.picture? %>
-      <%= image_tag @user.picture.url %>
-    <% else %>
-      <%= image_tag "https://api.adorable.io/avatars/285/#{@user.name}.png" %>
-    <% end %>
+    <%= image_tag "https://api.adorable.io/avatars/285/#{@user.name}.png" %>
   </div>

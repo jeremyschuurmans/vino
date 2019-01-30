@@ -19,8 +19,6 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: :true, length: { minimum: 6 }, allow_nil: true
-  mount_uploader :picture, PictureUploader
-  validate :picture_size
 
   # From Rails source code. Hashes passed in string.
   # Here because I need to create a digest for remembering users in browser.
@@ -62,14 +60,6 @@ class User < ApplicationRecord
 
   def following?(other_user)
     following.include?(other_user)
-  end
-
-  private
-
-  def picture_size
-    if picture.size > 5.megabytes
-      errors.add(:picture, "file should be less than 5MB")
-    end
   end
 
 end
