@@ -11,7 +11,7 @@ class WinesController < ApplicationController
     @user = current_user
     @wine = current_user.wines.build(wine_params)
     if @wine.save
-      @user.wines << @wine.find_by(id: params[:user_id])
+      @user.wines << @wine
       # @wine.users << @user.find_by(id: params[:user_id])
       flash[:success] = "Success!"
       redirect_to @user
@@ -45,9 +45,13 @@ class WinesController < ApplicationController
 
   def destroy
     @user = current_user
-    @wine.destroy
-    flash[:success] = "Wine deleted"
-    redirect_back(fallback_location: root_url)
+    @wine = Wine.find(params[:id])
+    if @wine.destroy
+      flash[:success] = "Wine deleted"
+      redirect_to @user
+    else
+      redirect_back(fallback_location: root_url)
+    end
   end
 
   private
