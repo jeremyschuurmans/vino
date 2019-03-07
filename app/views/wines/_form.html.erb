@@ -28,6 +28,7 @@
     <%= f.label :tasting_notes %>
     <%= f.text_area :tasting_notes, size: "50 x 10", class: "form-control", placeholder: "Oodles of black cherry and sour cherry fill the aroma and flood the flavors of this full-bodied, concentrated and deeply fruity wine. The ripeness is balanced by good fruit acidity, making the wine both seductive and refreshing to sip." %>
   </div>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.submit "Submit", class: "btn btn-block" %>
 <% end %>
 <br></br>

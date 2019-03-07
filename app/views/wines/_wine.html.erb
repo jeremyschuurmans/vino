@@ -6,7 +6,7 @@
         <p>
           <%= wine.tasting_notes %><br></br>
            <span class="timestamp">Posted <%= time_ago_in_words(wine.created_at) %> ago.</span><br>
-           <% if current_user?(wine.user) %>
+           <% if current_user?(wine) %>
             <%= link_to "Edit", edit_wine_path(wine) %><br>
             <%= link_to "Delete", wine, method: :delete, data: { confirm: "Are you certain?" } %>
            <% end %>

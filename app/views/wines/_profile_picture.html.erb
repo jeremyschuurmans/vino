@@ -1,4 +1,4 @@
-<strong><%= @wine.user.name %></strong>
+<strong><%= @wine.users.last.name %></strong>
   <div class="thumbnail">
     <% if @wine.user.picture? %>
       <%= image_tag @wine.user.picture.url %>

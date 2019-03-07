@@ -11,6 +11,8 @@ class WinesController < ApplicationController
     @user = current_user
     @wine = current_user.wines.build(wine_params)
     if @wine.save
+      @user.wines << @wine
+      @wine.users << @user
       flash[:success] = "Success!"
       redirect_to @user
     else
@@ -20,7 +22,7 @@ class WinesController < ApplicationController
 
   def show
     @wine = Wine.find(params[:id])
-    @user = @wine.user
+    # @user = @wine.user
     @comments = Comment.all
   end
 
@@ -50,7 +52,7 @@ class WinesController < ApplicationController
   private
 
     def wine_params
-      params.require(:wine).permit(:name, :winery, :vintage, :origin, :price, :rating, :tasting_notes)
+      params.require(:wine).permit(:name, :winery, :vintage, :origin, :price, :rating, :tasting_notes, :user_id)
     end
 
     def log_in_check

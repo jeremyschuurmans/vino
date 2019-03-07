@@ -6,6 +6,7 @@
       <div class="comment-form">
       <%= form_for [@wine, Comment.new] do |f| %>
           <%= f.text_area :body %><br>
+          <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.submit %>
       <% end %>
       </div>

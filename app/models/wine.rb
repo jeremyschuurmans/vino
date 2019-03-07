@@ -1,9 +1,8 @@
 class Wine < ApplicationRecord
-  belongs_to :user
-  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy, inverse_of: :wine, foreign_key: 'wine_id'
+  has_many :users, through: :comments
   default_scope -> { order(created_at: :desc) }
-  validates :user_id,
-            :name,
+  validates :name,
             :winery,
             :vintage,
             :origin,
