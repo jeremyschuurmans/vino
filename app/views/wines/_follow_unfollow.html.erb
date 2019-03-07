@@ -1,10 +1,9 @@
-<% unless current_user?(@wine.users.last) %>
-  <div id="follow_form">
-    <% if current_user.following?(@wine.users.last) %>
-      <%= render 'users/unfollow_button' %>
-    <% else %>
-      <%= render 'users/follow_button' %>
-    <% end %>
-  </div>
-<% end %>
+<div id="follow_form">
+  <% if current_user.following?(@user) %>
+    <%= render 'users/unfollow_button' %>
+  <% elsif @user != current_user %>
+    <%= render 'users/follow_button' %>
+  <% end %>
+</div>
+
 <br></br>
