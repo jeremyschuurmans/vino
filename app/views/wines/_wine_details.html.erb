@@ -21,6 +21,7 @@
       </div>
     <% end %>
      <% if current_user?(@user) %>
+      <%= link_to "Edit", edit_wine_path(@wine) %><br>
       <%= link_to "Delete", @wine, method: :delete, data: { confirm: "Are you certain?" } %>
      <% end %><br>
      <%= link_to "Add a comment", new_wine_comment_path(@wine) %>
