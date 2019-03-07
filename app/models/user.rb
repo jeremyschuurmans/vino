@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: :true, length: { minimum: 6 }, allow_nil: true
 
-  # From Rails source code. Hashes passed in string.
+  # Hashes passed in string.
   # Here because I need to create a digest for remembering users in browser.
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

@@ -12,7 +12,6 @@ class WinesController < ApplicationController
     @wine = current_user.wines.build(wine_params)
     if @wine.save
       @user.wines << @wine
-      # @wine.users << @user.find_by(id: params[:user_id])
       flash[:success] = "Success!"
       redirect_to @user
     else
@@ -23,7 +22,6 @@ class WinesController < ApplicationController
   def show
     @wine = Wine.find(params[:id])
     @user = User.find(@wine.user_id)
-    # @user = @wine.user
     @comments = Comment.all
   end
 
