@@ -47,7 +47,9 @@ class UsersController < ApplicationController
 
   def destroy
     if current_user.admin?
-      User.find(params[:id]).destroy
+      @user = User.find(params[:id])
+      @user.wines.each(&:destroy)
+      @user.destroy
       flash[:success] = "User has been removed"
       redirect_to users_url
     else

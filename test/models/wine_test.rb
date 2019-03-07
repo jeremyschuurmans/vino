@@ -4,7 +4,8 @@ class WineTest < ActiveSupport::TestCase
 
   def setup
     @user = User.create(name: "Harry Potter", email: "hpotter@hogwarts.edu", password: "quidditch", password_confirmation: "quidditch")
-    @wine = @user.wines.build(name: "Borsao Garnacha",
+    @wine = @user.wines.build(user_id: @user.id,
+                              name: "Borsao Garnacha",
                               winery: "Borsao",
                               vintage: "2016",
                               origin: "Spain",

@@ -77,14 +77,15 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "when a user is deleted, the associated wines should also be deleted" do
-    @user.wines.create!(name: "Charles & Charles Rose",
+    @user.wines.create!(user_id: @user.id,
+                        name: "Charles & Charles Rose",
                         winery: "Charles & Charles",
                         vintage: "2017",
                         origin: "Columbia Valley, Washington",
                         price: "$12",
                         rating: 9,
                         tasting_notes: "This wine is a pretty, pale-salmon color. Aromas of strawberry bubblegum, herb, tropical fruit and citrus peel lead to dry fruit flavors, full of papaya, guava and pink-grapefruit notes with a tart finish. It flat-out delivers.")
-    assert_difference 'Wine.count', -1 do
+    assert_difference '@user.wines.count', -1 do
       @user.destroy
     end
   end
