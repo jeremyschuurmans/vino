@@ -12,7 +12,7 @@ class WinesController < ApplicationController
     @wine = current_user.wines.build(wine_params)
     if @wine.save
       @user.wines << @wine
-      @wine.users << @user
+      @wine.user << @user
       flash[:success] = "Success!"
       redirect_to @user
     else
