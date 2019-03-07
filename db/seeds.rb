@@ -26,7 +26,8 @@ users = User.order(:created_at).take(6)
   price = Faker::Number.between(9, 112)
   rating = Faker::Number.between(1, 10)
   tasting_notes = Faker::Food.fruits + " on the nose, " + "prominent flavors of " + Faker::Coffee.notes
-  users.each { |user| user.wines.create!(name: name,
+  users.each { |user| user.wines.create!(user_id: user.id,
+                                         name: name,
                                          winery: winery,
                                          vintage: vintage,
                                          origin: origin,

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
   end
   resources :wines, only: [:new, :create, :show, :edit, :update, :destroy]
-  resources :comments
+  resources :wines do
+    resources :comments
+  end
   resources :relationships, only: [:create, :destroy]
 end
