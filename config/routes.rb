@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root                   'static_pages#home'
-  get    '/about',   to: 'static_pages#about'
   get    '/signup',  to: 'users#new'
   post   '/signup',  to: 'users#create'
   get '/auth/facebook/callback', to: 'sessions#create'
@@ -13,9 +12,8 @@ Rails.application.routes.draw do
       get :feed
     end
   end
-  # resources :wines, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :wines do
-    resources :comments
+    resources :comments, only: [:new, :create]
   end
   resources :relationships, only: [:create, :destroy]
 end
