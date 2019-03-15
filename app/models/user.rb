@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :comments, as: :commentable, dependent: :destroy, inverse_of: :user, foreign_key: 'user_id'
+  has_many :comments, dependent: :destroy, inverse_of: :user, foreign_key: 'user_id'
   has_many :wines, through: :comments
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",

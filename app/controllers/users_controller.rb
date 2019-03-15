@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :log_in_check, only: [:index, :show, :edit, :update, :destroy, :feed, :following, :followers]
   before_action :correct_user_check, only: [:edit, :update, :feed]
-  require 'pry'
+
   def index
     if params[:user]
       @users = User.display_user(params[:user]).paginate(page: params[:page])
