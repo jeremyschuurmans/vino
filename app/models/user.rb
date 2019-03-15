@@ -19,6 +19,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: :true, length: { minimum: 6 }, allow_nil: true
+  scope :display_user, ->(user) { where("name = ?", user) }
 
   # Hashes passed in string.
   # Here because I need to create a digest for remembering users in browser.

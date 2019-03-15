@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @wine = Wine.find(params[:wine_id])
     @comment = @commentable.comments.create(comment_params)
     @comment.user_id = current_user.id
-    @comment.commentable_id = @commentable.id
+    # @comment.commentable_id = @commentable.id
     if @comment.save
       flash[:success] = "Comment posted!"
       redirect_to wine_path(@wine)
