@@ -1,0 +1,14 @@
+<% provide(:title, @user.name) %>
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-3 well">
+      <%= render 'profile_picture' %>
+      <section class="follows">
+        <%= render 'follows' %>
+        <%= render 'follow_unfollow' if logged_in? %>
+      </section>
+    </div>
+    <%= render 'feed' %>
+   </div>
+</div>

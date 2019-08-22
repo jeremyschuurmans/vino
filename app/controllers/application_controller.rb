@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
@@ -27,4 +28,10 @@ class ApplicationController < Sinatra::Base
       !!current_user #since current_user returns true, !current_user would make current_user false, but !!current_user makes it true. Basically user is logged in if user is "not not the current user"
     end
   end
+=======
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+  include SessionsHelper
+
+>>>>>>> 838f433e9496433f5afd2ec9171af631f6972d9a
 end

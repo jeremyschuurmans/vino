@@ -1,0 +1,7 @@
+<% if @users.any? %>
+  <div class="user-avatars">
+    <% @users.each do |user| %>
+      <%= image_tag "https://api.adorable.io/avatars/30/#{user.name}.png" %>
+    <% end %>
+  </div>
+<% end %>

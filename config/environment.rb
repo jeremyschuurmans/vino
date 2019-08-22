@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ENV['SINATRA_ENV'] ||= "development"
 ENV['RACK_ENV'] ||= "development"
 
@@ -11,3 +12,10 @@ ActiveRecord::Base.establish_connection(
 
 require './app/controllers/application_controller'
 require_all 'app'
+=======
+# Load the Rails application.
+require_relative 'application'
+
+# Initialize the Rails application.
+Rails.application.initialize!
+>>>>>>> 838f433e9496433f5afd2ec9171af631f6972d9a

@@ -1,0 +1,31 @@
+<% @user.wines.each do |wine| %>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="wine">
+        <h3><%= wine.name %></h3><br>
+        <p>
+          <%= wine.tasting_notes %><br></br>
+           <span class="timestamp">Posted <%= time_ago_in_words(wine.created_at) %> ago.</span><br>
+           <% if current_user?(wine) %>
+            <%= link_to "Edit", edit_wine_path(wine) %><br>
+            <%= link_to "Delete", wine, method: :delete, data: { confirm: "Are you certain?" } %>
+           <% end %>
+         </p>
+           <% if wine.comments.any? %>
+           <strong><h3>Comments:</h3></strong>
+           <div class="comments">
+            <% @comments.each do |comment| %>
+              <% if comment.commentable_id == wine.id %>
+                <i><%= comment.user.name %></i> says: <br>
+                <strong>"<%= comment.body %>"</strong><br>
+              <% end %>
+            <% end %>
+            </div>
+          <% end %>
+          <br>
+        <strong><%= link_to "Details", wine_path(wine) %></strong>
+        <br></br>
+      </div>
+    </div>
+  </div>
+<% end %>

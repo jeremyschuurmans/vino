@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to Vino!
 
 Vino is about good wine and good friends. It is a social wine journal that allows you to keep a record of wines you love, and share them with others. It is built in Ruby and utilizes Sinatra, ActiveRecord, BootstrapCDN (as well as custom HTML and CSS), and bcrypt.
@@ -44,6 +45,31 @@ Open your browser and navigate to http://localhost:9393/. Application landing pa
 
 ``/users/show`` - User profile page. Shows all wines created by user, and includes links to delete or edit wine entries.
 
+=======
+# Vino
+
+Vino is a social wine journal. Originally built with Sinatra, this is the new and improved Rails version!
+
+## Installation
+
+Clone this repo.
+
+Run `bundle install` to install required gems.
+
+Run `rails db:migrate`.
+
+Run `rails test` to run the test suite. If you see green, you're good to go.
+
+You can seed the database with sample data by running `rails db:seed`.
+
+Start your server by running `rails s`.
+
+Browse to `localhost:3000`.
+
+Open a bottle of wine.
+
+Enjoy some of that wine, liberally if the mood strikes you, and journal your experience.
+>>>>>>> 838f433e9496433f5afd2ec9171af631f6972d9a
 
 ## Contributing
 
