@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if logged_in?
       redirect back
     else
-      redirect '/'
+      redirect "/"
     end
   end
 
