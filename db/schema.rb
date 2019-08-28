@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-# encoding: UTF-8
-=======
->>>>>>> 838f433e9496433f5afd2ec9171af631f6972d9a
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -14,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20181104185212) do
 
   create_table "users", force: :cascade do |t|
@@ -104,7 +100,6 @@ ActiveRecord::Schema.define(version: 2019_02_28_183534) do
     t.string "picture"
     t.index ["user_id", "created_at"], name: "index_wines_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_wines_on_user_id"
->>>>>>> 838f433e9496433f5afd2ec9171af631f6972d9a
   end
 
 end
