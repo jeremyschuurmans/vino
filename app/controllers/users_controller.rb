@@ -1,70 +1,4 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
-
-  get '/signup' do
-    if logged_in?
-      redirect back
-    else
-      redirect "/"
-    end
-  end
-
-  post '/signup' do
-    if !params[:username].empty? && !params[:password].empty?
-      @user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:password])
-      if @user.save
-        session[:user_id] = @user.id #logs user in (adds user id to session hash)
-        redirect '/wines'
-      else
-        redirect '/'
-      end
-    else
-      redirect '/'
-    end
-  end
-
-  patch '/signup' do  #updates user info when user submits edit account info form
-    if logged_in?
-      @user = current_user
-      @user.update(name: params[:name], email: params[:email], username: params[:username], password: params[:password])
-      @user.save
-      redirect back
-    end
-  end
-
-  get '/login' do
-    if logged_in?
-      redirect back
-    else
-      redirect '/'
-    end
-  end
-
-  post '/login' do
-    @user = User.find_by(username: params[:username])
-    if @user && @user.authenticate(params[:password]) #if user exists and password is valid
-      session[:user_id] = @user.id #logs user in (adds user_id to session hash)
-      redirect '/wines'
-    else
-      redirect '/'
-    end
-  end
-
-  get '/logout' do
-    if logged_in?
-      session.destroy
-      redirect '/'
-    else
-      redirect '/'
-    end
-  end
-
-  get '/users/:slug' do  #user profile page
-    @user = User.find_by_slug(params[:slug])
-    @user = current_user
-    erb :'/users/show'
-  end
-=======
   before_action :log_in_check, only: [:index, :show, :edit, :update, :destroy, :feed, :following, :followers]
   before_action :correct_user_check, only: [:edit, :update, :feed]
 
@@ -171,5 +105,4 @@ class UsersController < ApplicationController
       redirect_to root_url unless current_user.admin?
     end
 
->>>>>>> 838f433e9496433f5afd2ec9171af631f6972d9a
 end
