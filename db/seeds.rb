@@ -2,7 +2,7 @@ User.create!(name: "Harry Potter",
              email: "hpotter@hogwarts.edu",
              password: "quidditch",
              password_confirmation: "quidditch",
-             admin: true)
+             admin: false)
 
 users = RandomuserLocal.generate(50)
 
