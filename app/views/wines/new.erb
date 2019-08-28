@@ -1,0 +1,110 @@
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/wines/new">New Wine</a></li>
+            <li><a href="/users/<%=current_user.slug%>">My Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" data-toggle="modal" data-target="#myAccountFormModal"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-sm-3 well">
+          <div class="well">
+            <%if current_user.plural?%>
+              <h4><%=current_user.name%>' Vino</h4>
+            <%else%>
+              <h4><%=current_user.name%>'s Vino</h4>
+            <%end%>
+            <img src="https://picsum.photos/65/65/?random" class="img-circle" alt="Avatar">
+          </div>
+          <div class="alert alert-success fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            <p><strong>Create a New Wine!</strong></p>
+            Fill out the form to the right to create a new entry.
+          </div>
+          <h4>Learn More!</h4>
+          <p><a href="https://winefolly.com/" target="_blank">Wine Folly</a></p>
+          <p><a href="https://www.winespectator.com/" target="_blank">Wine Spectator</a></p>
+          <p><a href="https://en.wikipedia.org/wiki/Wine" target="_blank">Wikipedia</a></p>
+        </div>
+    <div class="col-sm-7">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-default text-left">
+            <div class="panel-body">
+              <p contenteditable="true">What's going on today, <%= current_user.name %>?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="well">
+            <form action="/wines" method="POST">
+              <div class="form-group">
+                <label>Name: </label><input id="textbox" type="text" name="name" class="form-control" placeholder="Ada Pinot Noir">
+              </div>
+              <div class="form-group">
+                <label>Winery: </label><input id="textbox" type="text" name="winery" class="form-control" placeholder="Lovelace Vineyard & Winery">
+              </div>
+              <div class="form-group">
+                <label>Vintage: </label><input id="textbox" type="text" name="vintage" class="form-control" placeholder="2017">
+              </div>
+              <div class="form-group">
+                <label>Origin: </label><input id="textbox" type="text" name="origin" class="form-control" placeholder="United Kingdom">
+              </div>
+              <div class="form-group">
+                <label>Price: </label><input id="textbox" type="text" name="price" class="form-control" placeholder="$14">
+              </div>
+              <div class="form-group">
+                <label>Rating: </label><input id="textbox" type="text" name="rating" class="form-control" placeholder="8">
+              </div>
+              <div class="form-group">
+                <label>Tasting Notes: </label><textarea name="tasting_notes" class="form-control" placeholder="Oodles of black cherry and sour cherry fill the aroma and flood the flavors of this full-bodied, concentrated and deeply fruity wine. The ripeness is balanced by good fruit acidity, making the wine both seductive and refreshing to sip."></textarea>
+              </div>
+              <div class="form-group">
+                <label>Other Thoughts: </label><textarea name="other_notes" class="form-control" placeholder="Excellent for drinking while constructing algorithms."></textarea>
+              </div>
+              <button type="submit" class="btn btn-lg">Submit</button>
+              <button type="reset" class="btn btn-lg">Reset</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="myAccountFormModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Edit Your Account Information</h4>
+          </div>
+          <div class="modal-body">
+            <form action="/signup" method="POST">
+              <input type="hidden" name="_method" value="PATCH">
+              <div class="form-group">
+                <label>Name: </label><input type="text" name="name" class="form-control" value="<%=current_user.name%>">
+              </div>
+              <div class="form-group">
+                <label>Email: </label><input type="text" name="email" class="form-control" value="<%=current_user.email%>">
+              </div>
+              <div class="form-group">
+                <label>Username: </label><input type="text" name="username" class="form-control" value="<%=current_user.username%>">
+              </div>
+              <div class="form-group">
+                <label>New Password: </label><input type="password" name="password" class="form-control" value="<%=current_user.password%>" placeholder="Enter a new password">
+              </div>
+              <button type="submit" class="btn btn-lg"><strong>Submit</strong></button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>

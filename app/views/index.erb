@@ -1,0 +1,23 @@
+<div class="container-fluid center">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Create a New Account</h1>
+      <br></br>
+      <form action="/signup" method="POST">
+        <div class="form-group">
+          <label>Name: (required)</label><input type="text" name="name" class="form-control" placeholder="Ada Lovelace" required>
+        </div>
+        <div class="form-group">
+          <label>Email: (required)</label><input type="text" name="email" class="form-control" placeholder="ada@googlemail.com" required>
+        </div>
+        <div class="form-group">
+          <label>Username: (required)</label><input type="text" name="username" class="form-control" placeholder="a_lovelace" required>
+        </div>
+        <div class="form-group">
+          <label>Password: (required)</label><input type="password" name="password" class="form-control" placeholder="secure password" required>
+        </div>
+        <button type="submit" class="btn btn-block"><strong>Submit</strong></button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,121 @@
+
+/* set gray background color, font */
+
+body {
+  background-color: #f7f7f7;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 70px;
+}
+
+/* set black background color, white text and some padding */
+
+footer {
+  background-color: #8b9dc3;
+  color: white;
+  padding: 15px;
+}
+.glyphicon-heart {
+  color: red;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+/* navbar styles - set color, format logo, animations for buttons and links */
+
+.navbar {
+  background-color: #3b5998;
+  border: 0;
+  border-radius: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.nav.navbar-nav li a {
+  color: white;
+}
+.nav.navbar-nav li a:hover {
+  background-color: black;
+}
+.logo {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 30px;
+  background-color: #3b5998;
+  color: white;
+  padding-top: 4px;
+  margin-right: 14px;
+}
+.navbar-right:hover {
+  background-color: black;
+}
+
+/* left and right sidebar styles */
+
+.col-sm-2 {
+  background-color: #ffffff;
+}
+.col-sm-3 {
+  background-color: #ffffff;
+}
+
+/* center column styles - format forms, buttons */
+
+.col-sm-12 button {
+  background-color: #dfe3ee;
+}
+.col-sm-12 button:hover {
+  background-color: #8b9dc3;
+  color: white;
+}
+.col-sm-12 a {
+  text-decoration: none;
+  color: black;
+}
+.col-sm-12 a:hover {
+   background-color: #8b9dc3;
+    color: white;
+}
+.col-sm-12 .form-group {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.col-sm-12 btn-block {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.well {
+  background-color: #ffffff;
+}
+.well p {
+  text-align: center;
+}
+.well h4 {
+  padding-bottom: 15px;
+}
+
+/* modal styles */
+
+.modal-header {
+  background-color: #8b9dc3;
+  color: #ffffff;
+}
+.modal-body {
+  background-color: #f7f7f7;
+}
+.modal-body button {
+  background-color: #dfe3ee;
+}
+.modal-body button:hover {
+  background-color: #8b9dc3;
+  color: #ffffff;
+}
+.modal-footer {
+  background-color: #f7f7f7;
+}
+.modal-footer button {
+  background-color: #dfe3ee;
+}
+.modal-footer button:hover {
+  background-color: #8b9dc3;
+  color: #ffffff;
+}

@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+source 'http://rubygems.org'
+
+gem 'sinatra'
+gem 'activerecord', '~> 4.2', '>= 4.2.6', :require => 'active_record'
+gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
+gem 'rake'
+gem 'require_all'
+gem 'sqlite3'
+gem 'thin'
+gem 'shotgun'
+gem 'pry'
+gem 'bcrypt'
+gem 'tux'
+
+group :test do
+  gem 'rspec'
+  gem 'capybara'
+  gem 'rack-test'
+  gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+end
+=======
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -58,3 +80,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+>>>>>>> 838f433e9496433f5afd2ec9171af631f6972d9a
